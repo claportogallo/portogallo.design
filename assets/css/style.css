@@ -188,3 +188,25 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   color: var(--ink);
   user-select: none;
 }
+
+/* --- Hover overlay su card --- */
+.card{ position: relative; overflow: hidden; }
+.card .mask{
+  position: absolute; inset: 0;
+  background: rgba(255,255,255,0);  /* trasparente inizialmente */
+  display: grid; place-items: center;
+  opacity: 0;
+  transition: opacity .18s ease, background .18s ease;
+  pointer-events: none; /* non blocca il click sulla card */
+}
+.card:hover .mask{
+  opacity: 1;
+  background: rgba(255,255,255,0.5); /* bianco 50% */
+}
+.mask .txt{ text-align: center; padding: 10px 12px; }
+.mask .title{
+  font-weight: 900; color: #0b0b0c; letter-spacing: .2px;
+}
+.mask .meta{
+  margin-top: 6px; font-size: 13px; color: #0b0b0c; opacity: .85;
+}
