@@ -1,0 +1,197 @@
+let MODE = 'home';
+let LAST_SECTION = null;
+const tabsBox = document.getElementById('tabs');
+const tabs = document.querySelectorAll('.vtab');
+const gallery = document.getElementById('gallery');
+const homeBtn = document.getElementById('homeBtn');
+const contactTab = document.getElementById('contactTab');
+
+const overlay = document.getElementById('overlay');
+const overlayScroll = document.getElementById('overlayScroll');
+const closeOverlayBtn = document.getElementById('closeOverlay');
+const projectSheet = document.getElementById('projectSheet');
+const contactSheet = document.getElementById('contactSheet');
+const sheetMedia = document.getElementById('sheetMedia');
+const sheetTitle = document.getElementById('sheetTitle');
+const sheetDesc  = document.getElementById('sheetDesc');
+const year = document.getElementById('year'); if (year) year.textContent = new Date().getFullYear();
+const preloader = document.getElementById('preloader');
+
+function endPreloader(){
+  if(!preloader) return;
+  preloader.classList.add('hide');
+  setTimeout(()=> preloader.style.display='none', 450);
+}
+
+// Rivela le card visibili con uno "stagger"
+function revealGridStagger(){
+  const cards = Array.from(gallery.querySelectorAll('.card'))
+    .filter(c => c.style.display !== 'none');
+  cards.forEach((c,i) => {
+    c.classList.remove('is-in');
+    setTimeout(()=> { c.classList.add('is-in'); }, 40 + i*70);
+  });
+}
+
+
+const bzTop = document.getElementById('bzTop');
+const bzLeft = document.getElementById('bzLeft');
+const bzRight = document.getElementById('bzRight');
+
+// dot scrollbar (bound to overlayScroll)
+const scrollDots = document.getElementById('scrollDots');
+const DOTS = 24;
+let currentDot = Math.floor(DOTS/2);
+function buildDots(){
+  scrollDots.innerHTML = '';
+  for (let i=0;i<DOTS;i++){ const li=document.createElement('li'); if(i===currentDot) li.classList.add('active'); scrollDots.appendChild(li); }
+}
+function setDotByProgress(progress){
+  const idx = Math.max(0, Math.min(DOTS-1, Math.round(progress*(DOTS-1))));
+  if (idx === currentDot) return;
+  scrollDots.children[currentDot].classList.remove('active');
+  scrollDots.children[idx].classList.add('active');
+  currentDot = idx;
+}
+buildDots();
+
+function setMode(newMode){
+  MODE = newMode;
+  document.body.classList.remove('mode-home','mode-section','mode-project','mode-contact');
+  if (MODE === 'home'){
+    document.body.classList.add('mode-home');
+    tabsBox.classList.remove('compact');
+    tabs.forEach(t => t.classList.remove('active'));
+    filterCards(null);
+    hideOverlay();
+  } else if (MODE === 'section'){
+    document.body.classList.add('mode-section');
+    tabsBox.classList.add('compact');
+    projectSheet.classList.add('hidden');
+    contactSheet.classList.add('hidden');
+    hideOverlay();
+  } else if (MODE === 'project'){
+    document.body.classList.add('mode-project');
+    // force all tabs compact (no active)
+    tabs.forEach(x => x.classList.remove('active'));
+    tabsBox.classList.add('compact');
+    overlay.classList.remove('hidden'); overlay.setAttribute('aria-hidden','false');
+    projectSheet.classList.remove('hidden'); contactSheet.classList.add('hidden');
+    currentDot = Math.floor(DOTS/2); buildDots();
+    overlayScroll.scrollTop = 0;
+  } else if (MODE === 'contact'){
+    document.body.classList.add('mode-contact');
+    tabsBox.classList.add('compact');
+    overlay.classList.remove('hidden'); overlay.setAttribute('aria-hidden','false');
+    contactSheet.classList.remove('hidden'); projectSheet.classList.add('hidden');
+    currentDot = Math.floor(DOTS/2); buildDots();
+    overlayScroll.scrollTop = 0;
+  }
+}
+function hideOverlay(){ overlay.classList.add('hidden'); overlay.setAttribute('aria-hidden','true'); }
+
+function filterCards(cat){
+  const cards = gallery.querySelectorAll('.card');
+  cards.forEach(card => {
+    if (!cat){ card.classList.remove('hide'); card.style.display=''; card.classList.add('show'); setTimeout(()=>card.classList.remove('show'),260); }
+    else { const cats=(card.dataset.cats||'').split(' '); const visible=cats.includes(cat);
+      if (visible){ card.classList.remove('hide'); card.style.display=''; card.classList.add('show'); setTimeout(()=>card.classList.remove('show'),260); }
+      else { card.classList.add('hide'); setTimeout(()=>{ card.style.display='none'; },200); }
+    }
+  });
+}
+
+function stepBack(){
+  if (MODE === 'project'){ setMode('section'); return; }
+  if (MODE === 'contact'){ if (LAST_SECTION){ setMode('section'); } else { setMode('home');
+
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    endPreloader();
+    revealGridStagger();
+  }, 3000);
+});
+ } return; }
+  if (MODE === 'section'){ setMode('home');
+
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    endPreloader();
+    revealGridStagger();
+  }, 3000);
+});
+ return; }
+}
+
+// Tabs
+tabs.forEach(t => t.addEventListener('click', () => {
+  const cat = t.dataset.filter;
+  if (MODE === 'project' || MODE === 'contact') hideOverlay();
+  if (cat === 'about'){ openProject(PROJECTS['About me']); return; }
+  tabs.forEach(x => x.classList.remove('active'));
+  t.classList.add('active');
+  LAST_SECTION = cat;
+  setMode('section');
+  filterCards(cat);
+}));
+
+// Contatti
+contactTab.addEventListener('click', (e)=>{ e.preventDefault(); setMode('contact'); });
+
+// Home/logo
+homeBtn.addEventListener('click', e => { e.preventDefault(); LAST_SECTION=null; setMode('home');
+
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    endPreloader();
+    revealGridStagger();
+  }, 3000);
+});
+ });
+
+// Open project
+function openProject(data){
+  sheetTitle.textContent = data.title || 'Progetto';
+  sheetDesc.textContent  = data.desc || '';
+  sheetMedia.innerHTML = '';
+  const imgs = Array.isArray(data.images) ? data.images : [];
+  imgs.forEach(src => { const im=document.createElement('img'); im.src=src; sheetMedia.appendChild(im); });
+  setMode('project');
+}
+
+// close
+function closeProject(){ hideOverlay(); }
+closeOverlayBtn.addEventListener('click', closeProject);
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') stepBack(); });
+
+// backzones click
+[bzTop, bzLeft, bzRight].forEach(el => el.addEventListener('click', stepBack));
+
+// cards -> project
+gallery.querySelectorAll('.card').forEach(card => {
+  const img = card.querySelector('img');
+  card.addEventListener('click', ()=>{
+    const alt = img.getAttribute('alt');
+    const key = alt.toLowerCase();
+    const data = window.PROJECTS_KEYED[key] || {};
+    openProject(data);
+  });
+});
+
+// dot scrollbar on inner scroller
+overlayScroll.addEventListener('scroll', () => {
+  const max = overlayScroll.scrollHeight - overlayScroll.clientHeight;
+  if (max <= 0) return;
+  const progress = overlayScroll.scrollTop / max;
+  setDotByProgress(progress);
+});
+
+setMode('home');
+
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    endPreloader();
+    revealGridStagger();
+  }, 3000);
+});
+
