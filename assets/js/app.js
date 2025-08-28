@@ -33,6 +33,30 @@ function revealGridStagger(){
   });
 }
 
+/* === A D D E D : overlay titolo/meta sulle card in hover ===
+   - usa PROJECTS_KEYED per il titolo
+   - legge luogo/data da data-meta sulla card (facoltativo) */
+function injectCardOverlays(){
+  if (!gallery) return;
+  const cards = gallery.querySelectorAll('.card');
+  cards.forEach(card => {
+    if (card.querySelector('.mask')) return; // già creata
+    const img = card.querySelector('img');
+    const key = (img?.getAttribute('alt') || '').toLowerCase(); // "a","b",...
+    const data = window.PROJECTS_KEYED ? window.PROJECTS_KEYED[key] : null;
+    const title = data?.title || '';
+    const meta = card.getAttribute('data-meta') || '';
+    const mask = document.createElement('div');
+    mask.className = 'mask';
+    mask.innerHTML = `
+      <div class="txt">
+        <div class="title">${title}</div>
+        ${meta ? `<div class="meta">${meta}</div>` : ``}
+      </div>
+    `;
+    card.appendChild(mask);
+  });
+}
 
 const bzTop = document.getElementById('bzTop');
 const bzLeft = document.getElementById('bzLeft');
@@ -64,6 +88,10 @@ function setMode(newMode){
     tabs.forEach(t => t.classList.remove('active'));
     filterCards(null);
     hideOverlay();
+    // refresh overlay testi/meta in home
+    injectCardOverlays();
+    // rientro a cascata
+    setTimeout(revealGridStagger, 40);
   } else if (MODE === 'section'){
     document.body.classList.add('mode-section');
     tabsBox.classList.add('compact');
@@ -99,28 +127,15 @@ function filterCards(cat){
       else { card.classList.add('hide'); setTimeout(()=>{ card.style.display='none'; },200); }
     }
   });
+  // dopo ogni filtraggio: assicura overlay presenti e rivelazione a cascata
+  injectCardOverlays();
+  revealGridStagger();
 }
 
 function stepBack(){
   if (MODE === 'project'){ setMode('section'); return; }
-  if (MODE === 'contact'){ if (LAST_SECTION){ setMode('section'); } else { setMode('home');
-
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    endPreloader();
-    revealGridStagger();
-  }, 3000);
-});
- } return; }
-  if (MODE === 'section'){ setMode('home');
-
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    endPreloader();
-    revealGridStagger();
-  }, 3000);
-});
- return; }
+  if (MODE === 'contact'){ if (LAST_SECTION){ setMode('section'); } else { setMode('home'); } return; }
+  if (MODE === 'section'){ setMode('home'); return; }
 }
 
 // Tabs
@@ -139,15 +154,11 @@ tabs.forEach(t => t.addEventListener('click', () => {
 contactTab.addEventListener('click', (e)=>{ e.preventDefault(); setMode('contact'); });
 
 // Home/logo
-homeBtn.addEventListener('click', e => { e.preventDefault(); LAST_SECTION=null; setMode('home');
-
-document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    endPreloader();
-    revealGridStagger();
-  }, 3000);
+homeBtn.addEventListener('click', e => {
+  e.preventDefault();
+  LAST_SECTION=null;
+  setMode('home');
 });
- });
 
 // Open project
 function openProject(data){
@@ -188,10 +199,12 @@ overlayScroll.addEventListener('scroll', () => {
 
 setMode('home');
 
+// preloader + rivelazione iniziale griglia
 document.addEventListener('DOMContentLoaded', () => {
+  // crea overlay titoli/meta sulle card dopo che il DOM è pronto
+  injectCardOverlays();
   setTimeout(() => {
     endPreloader();
     revealGridStagger();
   }, 3000);
 });
-
