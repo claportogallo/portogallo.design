@@ -43,3 +43,34 @@ html,body {height:100%;overflow-y:auto;}
 
 /* Footer */
 footer {text-align:left;padding:10px;font-size:12px;}
+
+/* --- Logo dimensioni --- */
+#homeBtn .logo-img{ height:40px; width:auto; }
+#preloader .logo-pre{ height:26px; width:auto; margin:0 auto 16px; } /* 50% più piccolo */
+
+/* --- Preloader layout --- */
+#preloader{
+  position:fixed; inset:0; background:#fff; z-index:9999;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  transition:opacity .35s ease;
+}
+#preloader.hide{ opacity:0; pointer-events:none; }
+
+/* --- Puntini preloader: passo netto, non sfumato --- */
+.loading-dots{ display:flex; gap:8px; margin-top:10px; list-style:none; padding:0; }
+.loading-dots li{
+  width:7px; height:7px; border-radius:50%;
+  background:#c9c9c9;
+  animation: dotStep 1.2s infinite steps(1,end);
+}
+.loading-dots li:nth-child(1){ animation-delay:0s; }
+.loading-dots li:nth-child(2){ animation-delay:.15s; }
+.loading-dots li:nth-child(3){ animation-delay:.30s; }
+.loading-dots li:nth-child(4){ animation-delay:.45s; }
+.loading-dots li:nth-child(5){ animation-delay:.60s; }
+
+@keyframes dotStep {
+  0%   { background:#111; }
+  20%  { background:#c9c9c9; }
+  100% { background:#c9c9c9; }
+}
