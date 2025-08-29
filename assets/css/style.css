@@ -8,7 +8,7 @@
   --top-corridor: 140px;    /* fascia superiore desktop */
 
   /* Logo: grande = preloader; ovunque nel sito = -25% */
-  --logo-desktop-large: 120px;             /* modifica qui la taglia "grande" */
+  --logo-desktop-large: 120px;                         /* cambia qui la taglia “grande” */
   --logo-site: calc(var(--logo-desktop-large) * 0.75); /* 75% del preloader */
 }
 
@@ -63,14 +63,36 @@ body{
   display:none;
 }
 
-/* Hover grow (SOLO desktop) */
+/* Hover grow (SOLO desktop, stato normale) */
 .vtab:hover{ height: calc(var(--tab-length) + 60px); transition: height .15s ease; }
 
-/* Compact preview (desktop) */
-.tabs.compact .vtab:not(.active){ transition: height .15s ease; }
-.tabs.compact .vtab:not(.active):hover{ height: 160px; }
-.tabs.compact .vtab:not(.active):hover .label{ display:block; }
-.tabs.compact .vtab:not(.active):hover .icon{ display:none; }
+/* ========== DESKTOP: COMPACT MODE (attivato da JS con #tabs.compact) ========== */
+/* Attivo: resta grande con etichetta */
+#tabs.compact .vtab.active,
+.tabs.compact .vtab.active{
+  height: calc(var(--tab-length) + 20px) !important;
+}
+#tabs.compact .vtab.active .label,
+.tabs.compact .vtab.active .label{ display:block !important; }
+#tabs.compact .vtab.active .icon,
+.tabs.compact .vtab.active .icon{ display:none !important; }
+
+/* Non attivi: piccoli con sola icona */
+#tabs.compact .vtab:not(.active),
+.tabs.compact .vtab:not(.active){
+  height:72px !important;
+}
+#tabs.compact .vtab:not(.active) .label,
+.tabs.compact .vtab:not(.active) .label{ display:none !important; }
+#tabs.compact .vtab:not(.active) .icon,
+.tabs.compact .vtab:not(.active) .icon{ display:block !important; }
+
+/* In compact, DISABILITA la crescita su hover dei non-attivi */
+#tabs.compact .vtab:not(.active):hover,
+.tabs.compact .vtab:not(.active):hover{
+  height:72px !important;
+  transition:none !important;
+}
 
 /* Contact tab (desktop) */
 .contact-tab{
@@ -147,9 +169,14 @@ body{
   display:block !important; width:100% !important; height:auto !important;
   margin:0 !important; padding:0 !important; border:0 !important;
   box-shadow:none !important; background:transparent !important;
-  opacity:1; transition:none;            /* niente fade, niente bordo */
+  opacity:1; transition:none;
 }
 #sheetMedia img.is-ready{ border:0 !important; }
+
+/* === DESKTOP IN PROGETTO: tutti i tab piccoli con icona === */
+body.mode-project .tabs .vtab{ height:72px !important; }
+body.mode-project .tabs .vtab .label{ display:none !important; }
+body.mode-project .tabs .vtab .icon{ display:block !important; }
 
 /* Meta */
 .sheet-meta{ position:sticky; top:24px; }
