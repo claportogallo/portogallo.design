@@ -179,14 +179,8 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
 
 
 /* Preloader brand */
-#preloader .brand{
-  font-weight: 900;
-  font-size: 22px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 24px;
-  color: var(--ink);
-  user-select: none;
+#preloader img {
+  margin-top: -20px;  /* regola tu il valore */
 }
 
 /* --- Hover overlay su card --- */
