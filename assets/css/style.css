@@ -222,121 +222,120 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
 }
 
 
-/* ===== Responsive & Mobile ===== */
+/* ===== Responsive & Mobile — v2 ===== */
 
-/* Base: card quadrate */
+/* Base: card quadrate (desktop + base) */
 .gallery.ten{ display:grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap, 22px); }
 .card{ position:relative; aspect-ratio: 1 / 1; overflow:hidden; }
 .card img{ width:100%; height:100%; object-fit:cover; display:block; }
 
 /* Tablet grande */
 @media (max-width: 1200px){
-  .gallery.ten{ grid-template-columns: repeat(4, 1r); }
+  .gallery.ten{ grid-template-columns: repeat(4, 1fr); }
 }
 
-/* Tablet / Mobile base */
+/* Tablet/Mobile */
 @media (max-width: 900px){
   :root{
     --gap: 18px;
     --headerH: clamp(64px, 9vw, 110px);
 
     /* Tabs */
-    --tabW: 132px;   /* PIÙ STRETTE: cambia qui la larghezza */
-    --tabGap: 16px;  /* SPAZIATURA tra le linguette */
-    --tabOffset: -12px; /* di quanto sporgono a destra (negativo = fuori) */
+    --tabW: 112px;    /* PIÙ STRETTE */
+    --tabGap: 10px;   /* PIÙ VICINE (ma non sovrapposte) */
+    --tabOffset: -12px; /* sporgenza a destra (negativo = fuori) */
   }
 
   /* Griglia a 3 colonne */
   .gallery.ten{ grid-template-columns: repeat(3, 1fr); }
 
-  /* Header fisso — logo a SINISTRA, fascia TRASPARENTE */
+  /* Header fisso, logo a SINISTRA, fascia TRASPARENTE */
   header.topbar{
     position: fixed; top:0; left:0; right:0; z-index:220;
     height: var(--headerH);
-    display:flex; align-items:center; justify-content:flex-start; /* sinistra */
-    background: transparent; /* mostra i puntini */
-    padding-left: 12px;
+    display:flex; align-items:center; justify-content:flex-start;
+    background: transparent; padding-left: 12px;
   }
   header.topbar .logo-img{
-    height: clamp(56px, 14vw, 112px);
-    display:block;
+    height: clamp(56px, 14vw, 112px); display:block;
   }
 
-  /* Spazio contenuti sotto l’header */
+  /* Contenuto sotto header */
   .stage{
     padding-top: calc(var(--headerH) + 16px);
     padding-left: 6vw; padding-right: 6vw; padding-bottom: 12vh;
   }
 
-  /* Sblocco scroll verticale */
+  /* Scroll ok su mobile */
   html, body{ height:auto; overflow:auto; }
   body.no-scroll{ overflow:hidden; }
 
-  /* ===== Tabs “a pettine” a destra ===== */
+  /* ===== Tabs a pettine a destra ===== */
   #tabs{
     position: fixed;
     top: calc(var(--headerH) + 8px);
-    right: var(--tabOffset);  /* sporgenza */
-    left: auto;
-    z-index: 180;             /* sotto al preloader (200) */
-    display:flex;
-    flex-direction: column;   /* uno sopra l’altro */
-    align-items: flex-end;    /* appoggiati al bordo destro */
+    right: var(--tabOffset); left: auto;
+    z-index: 180;
+    display:flex; flex-direction: column; align-items: flex-end;
     gap: var(--tabGap);
-    padding: 0;
-    background: transparent;
-    overflow: visible;
+    padding: 0; background: transparent; overflow: visible;
     height: auto; width: auto;
   }
 
   .vtab{
-    display:inline-flex; align-items:center; justify-content:flex-start;
-    width: var(--tabW); height: 40px;
-    padding: 0 12px;
-    text-align: left;                   /* testo allineato a sinistra */
-    border-radius: 4px 0 0 4px;         /* forma linguetta */
-    background:#000; color:#fff;        /* NERE come richiesto */
-  }
-  .vtab .icon{ display:none !important; }   /* niente icone in home */
-  .vtab .label{ display:block; font-weight:700; }
-  /* fallback in caso un browser ignorasse gap */
-  .vtab + .vtab{ margin-top: var(--tabGap); }
-
-  /* ===== “Contatti” in basso, stessa misura e sporgente ===== */
-  #contactTab{
-    position: fixed;
-    right: var(--tabOffset);
-    bottom: 12px;
-    z-index: 180;
-    display:flex; align-items:center; justify-content:flex-start;
+    /* forma e dimensioni base (HOME: etichette intere, icone nascoste) */
     width: var(--tabW); height: 40px;
     padding: 0 12px;
     border-radius: 4px 0 0 4px;
-    background:#000; color:#fff; text-decoration:none;
+    background:#000; color:#fff;
+    display:inline-flex; align-items:center; justify-content:flex-start;
+    text-align:left; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    writing-mode: initial; transform:none;
+    transition: width .18s ease, padding .18s ease, opacity .18s ease;
+  }
+  .vtab .icon{ display:none; }              /* niente icone in home */
+  .vtab .label{ display:block; font-weight:700; }
+
+  /* fallback se il browser ignorasse gap */
+  .vtab + .vtab{ margin-top: var(--tabGap); }
+
+  /* ===== Stato COMPATTO: quando un tab è attivo, gli ALTRI si restringono a icona ===== */
+  #tabs.compact .vtab:not(.active){
+    width: 40px; padding: 0; justify-content: center;
+  }
+  #tabs.compact .vtab:not(.active) .label{ display:none; }
+  #tabs.compact .vtab:not(.active) .icon{ display:inline; }
+
+  /* niente grow su hover in mobile */
+  .tabs.compact .vtab:not(.active),
+  .tabs.compact .vtab:not(.active):hover{ height:40px; }
+
+  /* Contatti in basso: stessa misura e sporgente */
+  #contactTab{
+    position: fixed; right: var(--tabOffset); bottom: 12px; z-index: 180;
+    display:flex; align-items:center; justify-content:flex-start;
+    width: var(--tabW); height: 40px; padding: 0 12px;
+    border-radius: 4px 0 0 4px; background:#000; color:#fff; text-decoration:none;
     border:0; box-shadow:none;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
   }
 
-  /* Overlay/scheda progetto (rispetto header) */
+  /* Overlay/scheda progetto spacing */
   #overlayScroll{
     padding-top: calc(var(--headerH) + 10px);
     padding-left: 6vw; padding-right: 6vw; padding-bottom: 10vh;
   }
 
-  /* Hover overlay: supporto touch */
+  /* Supporto touch overlay */
   .card.touchshow .mask{ opacity:1; background: rgba(255,255,255,.5); }
 }
 
-/* Smartphone medio/piccolo */
+/* Smartphone */
 @media (max-width: 640px){
-  :root{
-    --gap: 14px;
-    --headerH: 96px;   /* header un po’ più alto per il logo grande */
-  }
+  :root{ --gap: 14px; --headerH: 96px; }
   .gallery.ten{ grid-template-columns: repeat(2, 1fr); }
   .stage{ padding-top: calc(var(--headerH) + 16px); padding-left:12px; padding-right:12px; }
   #overlayScroll{ padding-left:12px; padding-right:12px; }
-
-  /* Preloader: logo leggermente più alto su mobile */
   #preloader img.logo-pre{ transform: translateY(-20px); }
 }
 
@@ -346,20 +345,13 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
 }
 
 /* Media container imgs */
-#sheetMedia img{
-  display:block; width:100%; height:auto;
-  opacity:0; transition:opacity .2s ease;
-  background:#fff; margin:0; border:0;
-}
+#sheetMedia img{ display:block; width:100%; height:auto; opacity:0; transition:opacity .2s ease; background:#fff; margin:0; border:0; }
 #sheetMedia img.is-ready{ opacity:1; }
 
-/* ===== Nascondi tabs quando non devono vedersi ===== */
-/* Durante il preloader */
+/* Tabs off durante preloader e dentro progetto */
 #preloader:not(.hide) ~ #tabs,
-#preloader:not(.hide) ~ #contactTab{ display: none !important; }
-
-/* Dentro un progetto (overlay aperto) */
+#preloader:not(.hide) ~ #contactTab{ display:none !important; }
 @media (max-width: 900px){
   body:has(#overlay:not(.hidden)) #tabs,
-  body:has(#overlay:not(.hidden)) #contactTab{ display: none !important; }
+  body:has(#overlay:not(.hidden)) #contactTab{ display:none !important; }
 }
