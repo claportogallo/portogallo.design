@@ -279,3 +279,49 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
 
 /* Hover overlay touch support */
 .card.touchshow .mask{ opacity:1; background: rgba(255,255,255,.5); }
+
+/* === Mobile patch r1 === */
+
+/* Logo fixed in alto a sinistra sempre visibile */
+#homeBtn{
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0) + 12px);
+  left: 12px;
+  z-index: 220;
+}
+
+/* Tabs su mobile: verticali a destra, fissi in alto */
+@media (max-width: 900px){
+  #tabs{
+    position: fixed;
+    top: calc(env(safe-area-inset-top, 0) + 12px);
+    right: 12px;
+    z-index: 210;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: transparent;
+    padding: 0;
+    height: auto;
+    overflow: visible;
+  }
+  .vtab{
+    writing-mode: vertical-rl;
+    height: 110px;
+    width: 48px;
+    border-radius: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 8px 0;
+  }
+  .vtab .label{ display:block; transform:none; position:static; text-align:left; }
+  .vtab .icon{ display:none; }
+  .tabs.compact .vtab:not(.active){ height: 76px; }
+  .stage, #overlayScroll{ padding-right: 88px; }
+}
+
+/* Scroll verticale abilitato */
+html, body{ height:auto; overflow-y:auto; }
+.stage{ height:auto; min-height:100vh; }
+.gallery.ten{ height:auto; }
