@@ -222,7 +222,7 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
 }
 
 
-/* ===== Responsive & Mobile (nuova versione aggiornata) ===== */
+/* ===== Responsive & Mobile (sezione aggiornata) ===== */
 
 /* Base: card quadrate */
 .gallery.ten{ display:grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap, 22px); }
@@ -244,16 +244,17 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   /* Griglia a 3 colonne */
   .gallery.ten{ grid-template-columns: repeat(3, 1fr); }
 
-  /* Header fisso con logo sempre visibile */
+  /* Header fisso con logo a DESTRA sempre visibile */
   header.topbar{
     position: fixed; top:0; left:0; right:0; z-index:220;
     height: var(--headerH);
-    display:flex; align-items:center; justify-content:center;
+    display:flex; align-items:center; justify-content:flex-end; /* destra */
     background: var(--bg);
+    padding-right: 12px;
   }
-  /* LOGO PIÙ GRANDE su mobile/tablet */
+  /* Logo più grande su mobile/tablet */
   header.topbar .logo-img{
-    height: clamp(56px, 14vw, 112px); /* ~doppio */
+    height: clamp(56px, 14vw, 112px);
     display:block;
   }
 
@@ -267,23 +268,30 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   html, body{ height:auto; overflow:auto; }
   body.no-scroll{ overflow:hidden; }
 
-  /* TABS: orizzontali a destra, sporgenti a pettine */
+  /* TABS: “a pettine” in COLONNA a destra, che sporgono un po’ fuori */
   #tabs{
     position: fixed;
     top: calc(var(--headerH) + 8px);
-    right: -10px;             /* sporge un po' fuori */
+    right: -10px;              /* sporge fuori */
     left: auto;
-    z-index: 180;             /* sotto al preloader (che è 200) */
-    display:flex; flex-direction:row; gap:8px;
-    padding:0; background:transparent;
-    overflow:visible; height:auto; width:auto;
+    z-index: 180;              /* sotto al preloader (che è 200) */
+    display:flex;
+    flex-direction: column;    /* uno sopra l'altro */
+    align-items: flex-end;     /* allineati al bordo destro */
+    gap: 8px;
+    padding: 0;
+    background: transparent;
+    overflow: visible;
+    height: auto; width: auto;
   }
   .vtab{
-    writing-mode: initial;    /* orizzontale */
-    display:inline-flex; align-items:center; justify-content:center;
-    height:40px; width:auto;
-    padding:0 10px; border-radius:4px 0 0 4px;
-    position:relative;
+    writing-mode: initial;     /* testo orizzontale */
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    height: 40px; width: auto;
+    padding: 0 10px;
+    border-radius: 4px 0 0 4px; /* linguetta */
+    position: relative;
     /* opzionale: background:#000; color:#fff; */
   }
   .vtab .label, .vtab .icon{ display:inline; transform:none; position:static; font-weight:700; }
@@ -310,8 +318,9 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
 @media (max-width: 640px){
   :root{
     --gap: 14px;
-    --headerH: 96px; /* header più alto per contenere il logo grande */
+    --headerH: 96px; /* header più alto per il logo grande */
   }
+
   /* Griglia 2 colonne */
   .gallery.ten{ grid-template-columns: repeat(2, 1fr); }
 
@@ -337,5 +346,5 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
 #sheetMedia img.is-ready{ opacity:1; }
 
 /* ----- Fix Preloader vs Tabs ----- */
-/* Finché il preloader è visibile, nascondi i tabs */
+/* Finché il preloader è visibile, nascondi i tabs (vale anche su mobile) */
 #preloader:not(.hide) ~ #tabs { display: none !important; }
