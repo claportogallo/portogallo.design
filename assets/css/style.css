@@ -222,7 +222,7 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
 }
 
 
-/* ===== Responsive & Mobile (v definitivo) ===== */
+/* ===== Responsive & Mobile ===== */
 
 /* Base: card quadrate */
 .gallery.ten{ display:grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap, 22px); }
@@ -231,7 +231,7 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
 
 /* Tablet grande */
 @media (max-width: 1200px){
-  .gallery.ten{ grid-template-columns: repeat(4, 1fr); }
+  .gallery.ten{ grid-template-columns: repeat(4, 1r); }
 }
 
 /* Tablet / Mobile base */
@@ -239,21 +239,24 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   :root{
     --gap: 18px;
     --headerH: clamp(64px, 9vw, 110px);
-    --tabW: 164px;      /* lunghezza uniforme linguette */
+
+    /* Tabs */
+    --tabW: 132px;   /* PIÙ STRETTE: cambia qui la larghezza */
+    --tabGap: 16px;  /* SPAZIATURA tra le linguette */
+    --tabOffset: -12px; /* di quanto sporgono a destra (negativo = fuori) */
   }
 
   /* Griglia a 3 colonne */
   .gallery.ten{ grid-template-columns: repeat(3, 1fr); }
 
-  /* Header fisso con logo a SINISTRA sempre visibile */
+  /* Header fisso — logo a SINISTRA, fascia TRASPARENTE */
   header.topbar{
     position: fixed; top:0; left:0; right:0; z-index:220;
     height: var(--headerH);
     display:flex; align-items:center; justify-content:flex-start; /* sinistra */
-    background: var(--bg);
+    background: transparent; /* mostra i puntini */
     padding-left: 12px;
   }
-  /* Logo più grande su mobile/tablet */
   header.topbar .logo-img{
     height: clamp(56px, 14vw, 112px);
     display:block;
@@ -269,41 +272,49 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   html, body{ height:auto; overflow:auto; }
   body.no-scroll{ overflow:hidden; }
 
-  /* TABS: “a pettine” in COLONNA a destra, sporgono e con spaziatura più ampia */
+  /* ===== Tabs “a pettine” a destra ===== */
   #tabs{
     position: fixed;
     top: calc(var(--headerH) + 8px);
-    right: -10px;              /* sporge un po' fuori dallo schermo */
+    right: var(--tabOffset);  /* sporgenza */
     left: auto;
-    z-index: 180;              /* sotto al preloader (200) */
+    z-index: 180;             /* sotto al preloader (200) */
     display:flex;
-    flex-direction: column;    /* uno sopra l’altro */
-    align-items: flex-end;     /* allineati al bordo destro */
-    gap: 12px;                 /* più spazio tra le linguette */
+    flex-direction: column;   /* uno sopra l’altro */
+    align-items: flex-end;    /* appoggiati al bordo destro */
+    gap: var(--tabGap);
     padding: 0;
     background: transparent;
     overflow: visible;
     height: auto; width: auto;
   }
-  .vtab{
-    writing-mode: initial;               /* testo orizzontale */
-    display: inline-flex;
-    align-items: center; justify-content: flex-end; /* testo “chiuso” a destra */
-    height: 40px;
-    width: var(--tabW);                  /* TUTTE LUNGHE UGUALI */
-    padding: 0 12px;
-    text-align: right;
-    border-radius: 4px 0 0 4px;          /* forma linguetta */
-    position: relative;
-    /* se vuoi il fondo nero: sblocca qui sotto */
-    /* background:#000; color:#fff; */
-  }
-  /* NIENTE ICONE su mobile (home) */
-  .vtab .icon{ display:none !important; }
-  .vtab .label{ display:block; transform:none; position:static; font-weight:700; }
 
-  .tabs.compact .vtab:not(.active),
-  .tabs.compact .vtab:not(.active):hover{ height:40px; }
+  .vtab{
+    display:inline-flex; align-items:center; justify-content:flex-start;
+    width: var(--tabW); height: 40px;
+    padding: 0 12px;
+    text-align: left;                   /* testo allineato a sinistra */
+    border-radius: 4px 0 0 4px;         /* forma linguetta */
+    background:#000; color:#fff;        /* NERE come richiesto */
+  }
+  .vtab .icon{ display:none !important; }   /* niente icone in home */
+  .vtab .label{ display:block; font-weight:700; }
+  /* fallback in caso un browser ignorasse gap */
+  .vtab + .vtab{ margin-top: var(--tabGap); }
+
+  /* ===== “Contatti” in basso, stessa misura e sporgente ===== */
+  #contactTab{
+    position: fixed;
+    right: var(--tabOffset);
+    bottom: 12px;
+    z-index: 180;
+    display:flex; align-items:center; justify-content:flex-start;
+    width: var(--tabW); height: 40px;
+    padding: 0 12px;
+    border-radius: 4px 0 0 4px;
+    background:#000; color:#fff; text-decoration:none;
+    border:0; box-shadow:none;
+  }
 
   /* Overlay/scheda progetto (rispetto header) */
   #overlayScroll{
@@ -311,34 +322,21 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
     padding-left: 6vw; padding-right: 6vw; padding-bottom: 10vh;
   }
 
-  /* Contatti pill su mobile */
-  #contactTab{
-    right:12px; bottom:12px; height:44px;
-    padding:0 16px; font-size:14px;
-  }
-
-  /* HIDE TABS quando il PRELOADER è visibile */
-  #preloader:not(.hide) ~ #tabs { display: none !important; }
-
-  /* HIDE TABS quando è aperto l’OVERLAY (sei dentro un progetto) */
-  body:has(#overlay:not(.hidden)) #tabs { display: none !important; }
+  /* Hover overlay: supporto touch */
+  .card.touchshow .mask{ opacity:1; background: rgba(255,255,255,.5); }
 }
 
 /* Smartphone medio/piccolo */
 @media (max-width: 640px){
   :root{
     --gap: 14px;
-    --headerH: 96px;   /* header un po’ più alto per logo grande */
+    --headerH: 96px;   /* header un po’ più alto per il logo grande */
   }
-
-  /* Griglia 2 colonne */
   .gallery.ten{ grid-template-columns: repeat(2, 1fr); }
-
-  /* Stage più stretto ai lati */
   .stage{ padding-top: calc(var(--headerH) + 16px); padding-left:12px; padding-right:12px; }
   #overlayScroll{ padding-left:12px; padding-right:12px; }
 
-  /* Preloader: logo un filo più alto su mobile */
+  /* Preloader: logo leggermente più alto su mobile */
   #preloader img.logo-pre{ transform: translateY(-20px); }
 }
 
@@ -354,3 +352,14 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   background:#fff; margin:0; border:0;
 }
 #sheetMedia img.is-ready{ opacity:1; }
+
+/* ===== Nascondi tabs quando non devono vedersi ===== */
+/* Durante il preloader */
+#preloader:not(.hide) ~ #tabs,
+#preloader:not(.hide) ~ #contactTab{ display: none !important; }
+
+/* Dentro un progetto (overlay aperto) */
+@media (max-width: 900px){
+  body:has(#overlay:not(.hidden)) #tabs,
+  body:has(#overlay:not(.hidden)) #contactTab{ display: none !important; }
+}
