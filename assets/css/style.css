@@ -8,8 +8,8 @@
   --top-corridor: 140px;    /* fascia superiore desktop */
 
   /* Logo: grande = preloader; ovunque nel sito = -25% */
-  --logo-desktop-large: 150px;                        /* taglia “grande” */
-  --logo-site: calc(var(--logo-desktop-large) * 0.75);/* 75% del preloader */
+  --logo-desktop-large: 300px;                        /* taglia “grande” */
+  --logo-site: calc(var(--logo-desktop-large) * 0.4);/* 40% del preloader */
 }
 
 *{ box-sizing:border-box; }
