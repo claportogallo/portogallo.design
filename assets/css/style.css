@@ -228,3 +228,54 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   opacity:1; 
   border-color: var(--frame);      /* mostra il bordo solo quando pronta */
 }
+
+
+/* ===== Responsive & Mobile Enhancements (v19-mobile-full) ===== */
+
+/* Header/corridoio tipografico adattivo */
+:root{
+  --headerH: clamp(64px, 9vw, 110px);
+  --gap: 22px;
+}
+
+/* Grid responsive: mantieni card quadrate con aspect-ratio */
+.gallery.ten{ display:grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap); }
+.card{ position:relative; aspect-ratio: 1 / 1; overflow:hidden; }
+.card img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+@media (max-width: 1200px){ .gallery.ten{ grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 900px){  :root{ --gap:18px; } .gallery.ten{ grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px){  :root{ --gap:14px; --headerH:72px; } .gallery.ten{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 380px){  .gallery.ten{ grid-template-columns: 1fr; } }
+
+/* Stage padding per rispettare lo spazio superiore su mobile */
+.stage{ padding-top: calc(var(--headerH) + 12px); padding-left: 6vw; padding-right: 6vw; padding-bottom: 12vh; }
+
+/* Tabs verticali su desktop; orizzontali e scrollabili su mobile */
+@media (max-width: 900px){
+  #tabs{ position:sticky; top:0; z-index:150; display:flex; gap:8px; padding:8px 12px; background:var(--bg);
+    overflow-x:auto; -webkit-overflow-scrolling:touch; height:auto; justify-content:flex-start; }
+  #tabs::-webkit-scrollbar{ display:none; }
+  .vtab{ writing-mode:initial; height:40px; width:auto; display:inline-flex; align-items:center; gap:6px;
+    padding:0 10px; border-radius:4px; }
+  .vtab .label{ display:inline; transform:none; position:static; font-weight:700; }
+  .vtab .icon{ display:inline; transform:none; position:static; }
+  .tabs.compact .vtab:not(.active){ height:40px; }
+  .tabs.compact .vtab:not(.active):hover{ height:40px; } /* niente grow su mobile */
+}
+
+/* Contatti pill su mobile */
+@media (max-width: 640px){
+  #contactTab{ right:12px; bottom:12px; height:44px; padding:0 16px; font-size:14px; }
+}
+
+/* Overlay/scheda progetto: rispetto header su mobile */
+#overlayScroll{ padding-top: calc(var(--headerH) + 10px); padding-left: 6vw; padding-right: 6vw; padding-bottom: 10vh; }
+@media (max-width: 640px){ #overlayScroll{ padding-left: 12px; padding-right: 12px; } }
+
+/* iOS glitch fix + nessun bordo/gap fra immagini (già enforced) */
+#sheetMedia img{ display:block; width:100%; height:auto; opacity:0; transition:opacity .2s ease; background:#fff; margin:0; border:0; }
+#sheetMedia img.is-ready{ opacity:1; }
+
+/* Hover overlay touch support */
+.card.touchshow .mask{ opacity:1; background: rgba(255,255,255,.5); }

@@ -219,3 +219,19 @@ document.addEventListener('DOMContentLoaded', () => {
     revealGridStagger();
   }, 3000);
 });
+
+
+// Touch: mostra overlay per ~1s al tap senza aprire il progetto
+(function(){
+  if (!('ontouchstart' in window)) return;
+  const cards = gallery ? gallery.querySelectorAll('.card') : [];
+  cards.forEach(card => {
+    let hoverTimer = null;
+    card.addEventListener('touchstart', () => {
+      if (MODE !== 'home' && MODE !== 'section') return;
+      card.classList.add('touchshow');
+      clearTimeout(hoverTimer);
+      hoverTimer = setTimeout(()=> card.classList.remove('touchshow'), 1000);
+    }, {passive:true});
+  });
+})();
