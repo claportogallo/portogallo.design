@@ -349,3 +349,34 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   20%  { background:#d0d0d0; }   /* torna grigio chiaro */
   100% { background:#d0d0d0; }
 }
+/* --- Puntini del preloader: orizzontali, grigi → neri in sequenza --- */
+.loading-dots {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 8px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.loading-dots li {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background: #d0d0d0 !important; /* grigio chiaro base */
+  animation: dotStep 1.2s infinite steps(1, end);
+}
+
+.loading-dots li:nth-child(1){ animation-delay: 0s; }
+.loading-dots li:nth-child(2){ animation-delay: 0.2s; }
+.loading-dots li:nth-child(3){ animation-delay: 0.4s; }
+.loading-dots li:nth-child(4){ animation-delay: 0.6s; }
+.loading-dots li:nth-child(5){ animation-delay: 0.8s; }
+
+@keyframes dotStep {
+  0%   { background:#111; }       /* nero quando attivo */
+  20%  { background:#d0d0d0; }    /* torna grigio */
+  100% { background:#d0d0d0; }
+}
