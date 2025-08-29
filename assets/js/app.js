@@ -17,6 +17,30 @@ const sheetDesc  = document.getElementById('sheetDesc');
 const year = document.getElementById('year'); if (year) year.textContent = new Date().getFullYear();
 const preloader = document.getElementById('preloader');
 
+// ---- hardening: evita crash se qualche nodo non esiste
+const noop = () => {};
+if (!tabsBox) console.warn('tabs container missing');
+if (!gallery)  console.warn('gallery missing');
+
+function on(el, ev, fn){
+  if (el) el.addEventListener(ev, fn);  // no-op se nullo
+}
+
+const hasScrollDots = !!document.getElementById('scrollDots');
+function buildDots(){
+  if (!hasScrollDots) return;
+  const scrollDots = document.getElementById('scrollDots');
+  scrollDots.innerHTML = '';
+  const DOTS = 24;
+  for (let i=0;i<DOTS;i++){
+    const li=document.createElement('li');
+    if(i===Math.floor(DOTS/2)) li.classList.add('active');
+    scrollDots.appendChild(li);
+  }
+}
+// se non usi i dots su mobile/variante, non verrà eseguito
+try { buildDots(); } catch(e) { console.warn(e); }
+
 /* ====== PRELOADER ROBUSTO ====== */
 let PRELOADER_DONE = false;
 function ready(){
