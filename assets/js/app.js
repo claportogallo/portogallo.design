@@ -235,3 +235,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }, {passive:true});
   });
 })();
+
+
+// Compact tabs on mobile: shrink siblings to icons when one is active
+(function(){
+  const tabsEl = document.getElementById('tabs');
+  if (!tabsEl) return;
+
+  const btns = tabsEl.querySelectorAll('.vtab');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // marca l’attivo
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // entra in modalità compatta (altri = icona)
+      tabsEl.classList.add('compact');
+    }, { passive: true });
+  });
+})();
