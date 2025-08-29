@@ -278,19 +278,23 @@ header.topbar .logo-img{ height: var(--logo-site); }
   }
 
   /* Header mobile */
-  header.topbar{
-    position:fixed; top:0; left:0; right:0; z-index:190 !important;
-    height:var(--headerH);
-    display:flex; align-items:center; justify-content:flex-start;
-    background:transparent; padding-left:12px;
-  }
+header.topbar{
+  position:fixed; top:0; left:0; right:0; z-index:190 !important;
+  height:var(--headerH);
+  display:flex; align-items:center; justify-content:flex-start;
+  background:transparent; padding-left:12px;
 
-  /* Logo mobile: taglia + abbassamento */
-  header.topbar .logo-img{
-    height: var(--logo-site) !important;
-    transform: translateY(var(--logo-mobile-offset)) !important;
-  }
+  /* spingi GIÙ il contenuto dell’header (logo compreso) */
+  padding-top: var(--logo-mobile-offset) !important;
+}
 
+/* Logo mobile: solo taglia (niente transform) */
+header.topbar .logo-img{
+  height: var(--logo-site) !important;
+  /* rimuovi questa linea dalla versione precedente:
+     transform: translateY(var(--logo-mobile-offset)) !important; */
+}
+  
   /* Stage mobile (base) */
   .stage{
     padding-top: calc(var(--headerH) + 16px);
