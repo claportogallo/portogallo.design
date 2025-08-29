@@ -1,64 +1,85 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portogallo.Design</title>
-  <link rel="stylesheet" href="style.css">
-  <script defer src="app.js"></script>
-  <script defer src="data.js"></script>
+
+  <!-- CSS con cache-busting -->
+  <link rel="stylesheet" href="assets/css/style.css?v=28" />
+  <!-- JS -->
+  <script defer src="app.js?v=28"></script>
+  <script defer src="data.js?v=28"></script>
 </head>
 <body>
-  <!-- Preloader -->
+
+  <!-- ================= PRELOADER ================= -->
   <div id="preloader">
-    <img src="logo.png" alt="Portogallo.Design" class="logo-preloader">
-    <ul class="loading-dots">
+    <!-- logo nel preloader -->
+    <img src="assets/images/logo.png" alt="portogallo.design" class="logo-pre" />
+    <ul class="loading-dots" id="preDots">
       <li></li><li></li><li></li><li></li><li></li>
     </ul>
   </div>
 
-  <!-- Header con logo -->
-  <header>
+  <!-- ================= HEADER / LOGO + TABS ================= -->
+  <header class="stage-header">
+    <!-- Logo/btn home (ID richiesto da app.js) -->
     <a href="#" id="homeBtn" class="logo">
-      <img src="logo.png" alt="Portogallo.Design">
+      <img src="assets/images/logo.png" alt="portogallo.design" class="logo-img" />
     </a>
+
+    <!-- Tabs (ID e class richiesti da app.js + CSS) -->
     <div id="tabs" class="tabs">
-      <div class="vtab" data-filter="architettura">Architettura</div>
-      <div class="vtab" data-filter="artigianato">Artigianato</div>
-      <div class="vtab" data-filter="grafica">Grafica</div>
-      <div class="vtab" data-filter="bim">BIM + AI</div>
-      <div class="vtab" data-filter="wedding">Wedding</div>
-      <div class="vtab" data-filter="about">About me</div>
+      <div class="vtab" data-filter="architettura"><span class="label">Architettura</span></div>
+      <div class="vtab" data-filter="artigianato"><span class="label">Artigianato</span></div>
+      <div class="vtab" data-filter="grafica"><span class="label">Grafica</span></div>
+      <div class="vtab" data-filter="bim"><span class="label">BIM + AI</span></div>
+      <div class="vtab" data-filter="wedding"><span class="label">Wedding</span></div>
+      <div class="vtab" data-filter="about"><span class="label">About me</span></div>
     </div>
   </header>
 
-  <!-- Gallery -->
+  <!-- ================= GALLERY ================= -->
   <main id="gallery" class="gallery"></main>
 
-  <!-- Contatti -->
-  <div id="contactTab" class="contact-tab">CONTATTI</div>
+  <!-- ================= CONTATTI (TAB FISSO) ================= -->
+  <button id="contactTab" class="contact-tab" type="button">CONTATTI</button>
 
-  <!-- Overlay -->
+  <!-- ================= OVERLAY (scheda progetto / contatti) ================= -->
   <div id="overlay" class="hidden" aria-hidden="true">
-    <div id="overlayScroll">
-      <button id="closeOverlay">✕</button>
-      <div id="projectSheet" class="sheet hidden">
-        <div id="sheetMedia"></div>
-        <div id="sheetTitle"></div>
-        <div id="sheetDesc"></div>
-      </div>
-      <div id="contactSheet" class="sheet hidden">
+    <div id="overlayScroll" class="overlay-scroll">
+      <button id="closeOverlay" class="overlay-close" type="button" aria-label="Chiudi">✕</button>
+
+      <!-- Scheda progetto -->
+      <section id="projectSheet" class="sheet hidden" aria-label="Scheda progetto">
+        <div id="sheetMedia" class="sheet-media"></div>
+        <h1 id="sheetTitle" class="sheet-title"></h1>
+        <div id="sheetDesc" class="sheet-desc"></div>
+      </section>
+
+      <!-- Scheda contatti -->
+      <section id="contactSheet" class="sheet hidden" aria-label="Contatti">
         <h2>Contatti</h2>
         <p>Email: <a href="mailto:info@portogallo.design">info@portogallo.design</a></p>
         <p>Telefono: +39 333 1234567</p>
-        <p><a href="https://maps.google.com/?q=Viuzzo+del+Roncolino+6,+Firenze" target="_blank">Google Maps</a></p>
-      </div>
+        <p><a href="https://maps.google.com/?q=Viuzzo+del+Roncolino+6,+Firenze" target="_blank" rel="noopener">Google Maps</a></p>
+      </section>
     </div>
-    <ul id="scrollDots"></ul>
+
+    <!-- scrollbar a pallini -->
+    <ul id="scrollDots" class="scroll-dots" aria-hidden="true"></ul>
+
+    <!-- zone “back” cliccabili (se le usi nel CSS) -->
+    <div id="bzTop" class="backzone top" aria-hidden="true"></div>
+    <div id="bzLeft" class="backzone left" aria-hidden="true"></div>
+    <div id="bzRight" class="backzone right" aria-hidden="true"></div>
   </div>
 
-  <footer>
+  <!-- ================= FOOTER ================= -->
+  <footer class="stage-footer">
     <small>© <span id="year"></span> diritti riservati</small>
   </footer>
+
 </body>
 </html>
