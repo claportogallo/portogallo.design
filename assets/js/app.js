@@ -17,24 +17,25 @@ const sheetDesc  = document.getElementById('sheetDesc');
 const year = document.getElementById('year'); if (year) year.textContent = new Date().getFullYear();
 const preloader = document.getElementById('preloader');
 
-/* ====== PRELOADER HARDENED (punto C) ====== */
+/* ====== PRELOADER ROBUSTO ====== */
 let PRELOADER_DONE = false;
-function endPreloader(){
+function ready(){
   if (PRELOADER_DONE) return;
   PRELOADER_DONE = true;
-  if (!preloader) return;
-  preloader.classList.add('hide');
-  setTimeout(()=> preloader.style.display='none', 500);
+  if (preloader){
+    preloader.classList.add('hide');
+    setTimeout(() => { try { preloader.remove(); } catch(e) { preloader.style.display = 'none'; } }, 500);
+  }
+  injectCardOverlays();
+  revealGridStagger();
 }
-// chiusura sicura dopo il load della pagina
-window.addEventListener('load', () => {
-  setTimeout(() => { endPreloader(); revealGridStagger(); }, 600);
-});
-// ulteriore rete di sicurezza: chiudi comunque dopo 3.5s
-setTimeout(() => { endPreloader(); }, 3500);
-/* ========================================== */
+window.addEventListener('load', ready, { once:true });
+document.addEventListener('DOMContentLoaded', () => setTimeout(ready, 1200), { once:true });
+window.addEventListener('error', ready, true);
+setTimeout(ready, 4500); // rete di sicurezza finale
+/* ================================= */
 
-// Rivela le card visibili con uno "stagger"
+/* Rivelazione griglia a cascata */
 function revealGridStagger(){
   const cards = Array.from(gallery.querySelectorAll('.card'))
     .filter(c => c.style.display !== 'none');
@@ -44,16 +45,14 @@ function revealGridStagger(){
   });
 }
 
-/* === A D D E D : overlay titolo/meta sulle card in hover ===
-   - usa PROJECTS_KEYED per il titolo
-   - legge luogo/data da data-meta sulla card (facoltativo) */
+/* Overlay titolo/meta sulle card */
 function injectCardOverlays(){
   if (!gallery) return;
   const cards = gallery.querySelectorAll('.card');
   cards.forEach(card => {
-    if (card.querySelector('.mask')) return; // già creata
+    if (card.querySelector('.mask')) return;
     const img = card.querySelector('img');
-    const key = (img?.getAttribute('alt') || '').toLowerCase(); // "a","b",...
+    const key = (img?.getAttribute('alt') || '').toLowerCase();
     const data = window.PROJECTS_KEYED ? window.PROJECTS_KEYED[key] : null;
     const title = data?.title || '';
     const meta = card.getAttribute('data-meta') || '';
@@ -73,15 +72,21 @@ const bzTop = document.getElementById('bzTop');
 const bzLeft = document.getElementById('bzLeft');
 const bzRight = document.getElementById('bzRight');
 
-// dot scrollbar (bound to overlayScroll)
+/* Dot scrollbar (overlay) */
 const scrollDots = document.getElementById('scrollDots');
 const DOTS = 24;
 let currentDot = Math.floor(DOTS/2);
 function buildDots(){
+  if (!scrollDots) return;
   scrollDots.innerHTML = '';
-  for (let i=0;i<DOTS;i++){ const li=document.createElement('li'); if(i===currentDot) li.classList.add('active'); scrollDots.appendChild(li); }
+  for (let i=0;i<DOTS;i++){
+    const li=document.createElement('li');
+    if(i===currentDot) li.classList.add('active');
+    scrollDots.appendChild(li);
+  }
 }
 function setDotByProgress(progress){
+  if (!scrollDots) return;
   const idx = Math.max(0, Math.min(DOTS-1, Math.round(progress*(DOTS-1))));
   if (idx === currentDot) return;
   scrollDots.children[currentDot].classList.remove('active');
@@ -93,31 +98,32 @@ buildDots();
 function setMode(newMode){
   MODE = newMode;
   document.body.classList.remove('mode-home','mode-section','mode-project','mode-contact');
+
   if (MODE === 'home'){
     document.body.classList.add('mode-home');
     tabsBox.classList.remove('compact');
     tabs.forEach(t => t.classList.remove('active'));
     filterCards(null);
     hideOverlay();
-    // refresh overlay testi/meta in home
     injectCardOverlays();
-    // rientro a cascata
     setTimeout(revealGridStagger, 40);
+
   } else if (MODE === 'section'){
     document.body.classList.add('mode-section');
     tabsBox.classList.add('compact');
     projectSheet.classList.add('hidden');
     contactSheet.classList.add('hidden');
     hideOverlay();
+
   } else if (MODE === 'project'){
     document.body.classList.add('mode-project');
-    // force all tabs compact (no active)
     tabs.forEach(x => x.classList.remove('active'));
     tabsBox.classList.add('compact');
     overlay.classList.remove('hidden'); overlay.setAttribute('aria-hidden','false');
     projectSheet.classList.remove('hidden'); contactSheet.classList.add('hidden');
     currentDot = Math.floor(DOTS/2); buildDots();
     overlayScroll.scrollTop = 0;
+
   } else if (MODE === 'contact'){
     document.body.classList.add('mode-contact');
     tabsBox.classList.add('compact');
@@ -132,13 +138,20 @@ function hideOverlay(){ overlay.classList.add('hidden'); overlay.setAttribute('a
 function filterCards(cat){
   const cards = gallery.querySelectorAll('.card');
   cards.forEach(card => {
-    if (!cat){ card.classList.remove('hide'); card.style.display=''; card.classList.add('show'); setTimeout(()=>card.classList.remove('show'),260); }
-    else { const cats=(card.dataset.cats||'').split(' '); const visible=cats.includes(cat);
-      if (visible){ card.classList.remove('hide'); card.style.display=''; card.classList.add('show'); setTimeout(()=>card.classList.remove('show'),260); }
-      else { card.classList.add('hide'); setTimeout(()=>{ card.style.display='none'; },200); }
+    if (!cat){
+      card.classList.remove('hide'); card.style.display=''; card.classList.add('show');
+      setTimeout(()=>card.classList.remove('show'),260);
+    } else {
+      const cats=(card.dataset.cats||'').split(' ');
+      const visible=cats.includes(cat);
+      if (visible){
+        card.classList.remove('hide'); card.style.display=''; card.classList.add('show');
+        setTimeout(()=>card.classList.remove('show'),260);
+      } else {
+        card.classList.add('hide'); setTimeout(()=>{ card.style.display='none'; },200);
+      }
     }
   });
-  // dopo ogni filtraggio: assicura overlay presenti e rivelazione a cascata
   injectCardOverlays();
   revealGridStagger();
 }
@@ -149,7 +162,7 @@ function stepBack(){
   if (MODE === 'section'){ setMode('home'); return; }
 }
 
-// Tabs
+/* Tabs */
 tabs.forEach(t => t.addEventListener('click', () => {
   const cat = t.dataset.filter;
   if (MODE === 'project' || MODE === 'contact') hideOverlay();
@@ -161,46 +174,42 @@ tabs.forEach(t => t.addEventListener('click', () => {
   filterCards(cat);
 }));
 
-// Contatti
+/* Contatti */
 contactTab.addEventListener('click', (e)=>{ e.preventDefault(); setMode('contact'); });
 
-// Home/logo
+/* Home/logo */
 homeBtn.addEventListener('click', e => {
   e.preventDefault();
   LAST_SECTION=null;
   setMode('home');
 });
 
-// Open project
+/* Open project */
 function openProject(data){
   sheetTitle.textContent = data.title || 'Progetto';
   sheetDesc.textContent  = data.desc || '';
   sheetMedia.innerHTML = '';
-
   const imgs = Array.isArray(data.images) ? data.images : [];
   imgs.forEach(src => {
     const im = new Image();
-    im.loading = 'eager';          // evita lazy e glitch su iOS
+    im.loading = 'eager';
     im.decoding = 'async';
     im.src = src;
-    im.addEventListener('load', () => {
-      im.classList.add('is-ready'); // ora può mostrare bordo + opacità
-    });
+    im.addEventListener('load', () => { im.classList.add('is-ready'); });
     sheetMedia.appendChild(im);
   });
-
   setMode('project');
 }
 
-// close
+/* close */
 function closeProject(){ hideOverlay(); }
 closeOverlayBtn.addEventListener('click', closeProject);
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') stepBack(); });
 
-// backzones click
+/* backzones click */
 [bzTop, bzLeft, bzRight].forEach(el => el.addEventListener('click', stepBack));
 
-// cards -> project
+/* cards -> project */
 gallery.querySelectorAll('.card').forEach(card => {
   const img = card.querySelector('img');
   card.addEventListener('click', ()=>{
@@ -211,7 +220,7 @@ gallery.querySelectorAll('.card').forEach(card => {
   });
 });
 
-// dot scrollbar on inner scroller
+/* dot scrollbar on inner scroller */
 overlayScroll.addEventListener('scroll', () => {
   const max = overlayScroll.scrollHeight - overlayScroll.clientHeight;
   if (max <= 0) return;
@@ -219,19 +228,10 @@ overlayScroll.addEventListener('scroll', () => {
   setDotByProgress(progress);
 });
 
+/* stato iniziale */
 setMode('home');
 
-// preloader + rivelazione iniziale griglia
-document.addEventListener('DOMContentLoaded', () => {
-  // crea overlay titoli/meta sulle card dopo che il DOM è pronto
-  injectCardOverlays();
-  setTimeout(() => {
-    endPreloader();
-    revealGridStagger();
-  }, 3000);
-});
-
-// Touch: mostra overlay per ~1s al tap senza aprire il progetto
+/* Hover “tap reveal” su touch */
 (function(){
   if (!('ontouchstart' in window)) return;
   const cards = gallery ? gallery.querySelectorAll('.card') : [];
