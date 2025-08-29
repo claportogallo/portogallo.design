@@ -10,6 +10,22 @@
 <script defer src="data.js?v=29"></script>
 <script defer src="app.js?v=29"></script>
 
+  <script>
+  (function () {
+    function killPreloader() {
+      var p = document.getElementById('preloader');
+      if (!p) return;
+      p.classList.add('hide');
+      // rimuovi dal DOM dopo la dissolvenza
+      setTimeout(function(){ if (p && p.parentNode) p.parentNode.removeChild(p); }, 450);
+    }
+    // chiudi quando la pagina ha finito di caricare
+    window.addEventListener('load', killPreloader);
+    // failsafe: chiudi comunque dopo 6000ms
+    setTimeout(killPreloader, 6000);
+  })();
+</script>
+
 <body>
 
   <!-- ================= PRELOADER ================= -->
