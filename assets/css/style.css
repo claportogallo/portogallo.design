@@ -268,12 +268,12 @@ header.topbar .logo-img{ height: var(--logo-site); }
     --headerH: clamp(64px, 9vw, 110px);
 
     /* Tabs mobile */
-    --tabW: 88px;         /* larghezza linguetta */
-    --tabGap: 4px;        /* spazio tra linguette */
+    --tabW: 130px;         /* larghezza linguetta */
+    --tabGap: 3px;        /* spazio tra linguette */
     --tabOffset: -12px;   /* sporgenza a destra (negativo = fuori) */
 
     /* Offset verticale del logo su mobile (home + progetti) */
-    --logo-mobile-offset: 10px; /* prova 8–16px */
+    --logo-mobile-offset: 15px; /* prova 8–16px */
   }
 
   /* Header mobile: logo a sinistra, fascia trasparente; sopra l'overlay */
