@@ -279,3 +279,20 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
 
 /* Hover overlay touch support */
 .card.touchshow .mask{ opacity:1; background: rgba(255,255,255,.5); }
+
+/* Logo header */
+#homeBtn .logo-img{
+  height: 80px;          /* stessa “impronta” della scritta di prima */
+  width: auto;
+  display: block;
+  margin: 10px 0 0 10px; /* come prima */
+}
+
+/* Logo nel preloader */
+#preloader .logo-pre{
+  height: 60px;          /* preloader un filo più compatto; cambia pure se vuoi */
+  width: auto;
+  display: block;
+  margin: 0 0 16px 0;
+}
+
