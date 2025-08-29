@@ -237,21 +237,30 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 
-// Compact tabs on mobile: shrink siblings to icons when one is active
-(function(){
+// === Compact tabs on mobile (drop-in, fine file) ===
+(function () {
   const tabsEl = document.getElementById('tabs');
   if (!tabsEl) return;
 
-  const btns = tabsEl.querySelectorAll('.vtab');
+  // Event delegation: ascolta click solo su .vtab
+  tabsEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('.vtab');
+    if (!btn || !tabsEl.contains(btn)) return;
 
-  btns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // marca l’attivo
-      btns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+    // marca l’attivo
+    tabsEl.querySelectorAll('.vtab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
 
-      // entra in modalità compatta (altri = icona)
-      tabsEl.classList.add('compact');
+    // entra in modalità compatta (gli altri si restringono)
+    tabsEl.classList.add('compact');
+  }, { passive: true });
+
+  // Facoltativo: tornando “Home” resetti lo stato compatto
+  const home = document.getElementById('homeBtn');
+  if (home) {
+    home.addEventListener('click', () => {
+      tabsEl.classList.remove('compact');
+      tabsEl.querySelectorAll('.vtab').forEach(b => b.classList.remove('active'));
     }, { passive: true });
-  });
+  }
 })();
