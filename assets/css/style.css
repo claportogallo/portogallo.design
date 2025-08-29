@@ -222,7 +222,7 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
 }
 
 
-/* ===== Responsive & Mobile (nuova versione pulita) ===== */
+/* ===== Responsive & Mobile (nuova versione aggiornata) ===== */
 
 /* Base: card quadrate */
 .gallery.ten{ display:grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap, 22px); }
@@ -251,8 +251,9 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
     display:flex; align-items:center; justify-content:center;
     background: var(--bg);
   }
+  /* LOGO PIÙ GRANDE su mobile/tablet */
   header.topbar .logo-img{
-    height: clamp(32px, 8vw, 56px);
+    height: clamp(56px, 14vw, 112px); /* ~doppio */
     display:block;
   }
 
@@ -266,25 +267,28 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   html, body{ height:auto; overflow:auto; }
   body.no-scroll{ overflow:hidden; }
 
-  /* Tabs verticali “a pettine” a destra */
+  /* TABS: orizzontali a destra, sporgenti a pettine */
   #tabs{
     position: fixed;
-    right: -10px;
     top: calc(var(--headerH) + 8px);
-    z-index: 210;
-    display:flex; flex-direction:column; gap:8px;
+    right: -10px;             /* sporge un po' fuori */
+    left: auto;
+    z-index: 180;             /* sotto al preloader (che è 200) */
+    display:flex; flex-direction:row; gap:8px;
     padding:0; background:transparent;
     overflow:visible; height:auto; width:auto;
   }
   .vtab{
-    writing-mode: vertical-rl;
-    display:flex; align-items:center; justify-content:center;
-    width:40px; padding:8px 0; border-radius:4px 0 0 4px;
+    writing-mode: initial;    /* orizzontale */
+    display:inline-flex; align-items:center; justify-content:center;
+    height:40px; width:auto;
+    padding:0 10px; border-radius:4px 0 0 4px;
+    position:relative;
     /* opzionale: background:#000; color:#fff; */
   }
-  .vtab .label, .vtab .icon{ transform:none; position:static; display:block; }
+  .vtab .label, .vtab .icon{ display:inline; transform:none; position:static; font-weight:700; }
   .tabs.compact .vtab:not(.active),
-  .tabs.compact .vtab:not(.active):hover{ height:auto; }
+  .tabs.compact .vtab:not(.active):hover{ height:40px; }
 
   /* Overlay/scheda progetto */
   #overlayScroll{
@@ -298,7 +302,7 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
     padding:0 16px; font-size:14px;
   }
 
-  /* Hover overlay touch support */
+  /* Hover overlay: supporto touch */
   .card.touchshow .mask{ opacity:1; background: rgba(255,255,255,.5); }
 }
 
@@ -306,7 +310,7 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
 @media (max-width: 640px){
   :root{
     --gap: 14px;
-    --headerH: 72px;
+    --headerH: 96px; /* header più alto per contenere il logo grande */
   }
   /* Griglia 2 colonne */
   .gallery.ten{ grid-template-columns: repeat(2, 1fr); }
@@ -315,7 +319,7 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   .stage{ padding-top: calc(var(--headerH) + 16px); padding-left:12px; padding-right:12px; }
   #overlayScroll{ padding-left:12px; padding-right:12px; }
 
-  /* Preloader: logo appena più alto su mobile */
+  /* Preloader: logo un filo più alto su mobile */
   #preloader img.logo-pre{ transform: translateY(-20px); }
 }
 
@@ -331,3 +335,7 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   background:#fff; margin:0; border:0;
 }
 #sheetMedia img.is-ready{ opacity:1; }
+
+/* ----- Fix Preloader vs Tabs ----- */
+/* Finché il preloader è visibile, nascondi i tabs */
+#preloader:not(.hide) ~ #tabs { display: none !important; }
