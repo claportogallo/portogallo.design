@@ -293,6 +293,13 @@ header.topbar .logo-img{ height: var(--logo-site); }
   /* Stage mobile (home) */
   .stage{ padding-top: calc(var(--headerH) + 16px); padding-left: 6vw; padding-right: 6vw; padding-bottom: 12vh; }
 
+  /* Offset extra per far scendere la griglia in HOME mobile */
+  :root{ --home-mobile-shift: 50px; }  /* cambia 50px a piacere */
+
+  /* Solo HOME (non nei progetti): sposta la griglia più in basso */
+  body:not(.mode-project) .stage{
+    padding-top: calc(var(--headerH) + 16px + var(--home-mobile-shift)) !important;
+
   /* Abilita scroll su mobile */
   html,body{ height:auto; overflow:auto; }
   body.no-scroll{ overflow:hidden; }
