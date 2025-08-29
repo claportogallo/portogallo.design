@@ -268,15 +268,16 @@ header.topbar .logo-img{ height: var(--logo-site); }
     --headerH: clamp(64px, 9vw, 110px);
 
     /* Tabs mobile */
-    --tabW: 130px;         /* larghezza linguetta */
-    --tabGap: 3px;        /* spazio tra linguette */
-    --tabOffset: -12px;   /* sporgenza a destra (negativo = fuori) */
+    --tabW: 130px;        /* linguette più lunghe */
+    --tabGap: 3px;        /* un filo più vicine */
+    --tabOffset: -12px;   /* sporgenza a destra */
 
-    /* Offset verticale del logo su mobile (home + progetti) */
-    --logo-mobile-offset: 15px; /* prova 8–16px */
+    /* Offset logo e griglia home */
+    --logo-mobile-offset: 15px;
+    --home-mobile-shift: 50px;  /* +50px in basso la griglia della HOME */
   }
 
-  /* Header mobile: logo a sinistra, fascia trasparente; sopra l'overlay */
+  /* Header mobile */
   header.topbar{
     position:fixed; top:0; left:0; right:0; z-index:190 !important;
     height:var(--headerH);
@@ -289,16 +290,17 @@ header.topbar .logo-img{ height: var(--logo-site); }
     height: var(--logo-site) !important;
     transform: translateY(var(--logo-mobile-offset)) !important;
   }
-  
-  /* Stage mobile (home) */
-  .stage{ padding-top: calc(var(--headerH) + 16px); padding-left: 6vw; padding-right: 6vw; padding-bottom: 12vh; }
 
-  /* Offset extra per far scendere la griglia in HOME mobile */
-  :root{ --home-mobile-shift: 50px; }  /* cambia 50px a piacere */
+  /* Stage mobile (base) */
+  .stage{
+    padding-top: calc(var(--headerH) + 16px);
+    padding-left: 6vw; padding-right: 6vw; padding-bottom: 12vh;
+  }
 
-  /* Solo HOME (non nei progetti): sposta la griglia più in basso */
+  /* SOLO HOME mobile: scendi di 50px extra */
   body:not(.mode-project) .stage{
     padding-top: calc(var(--headerH) + 16px + var(--home-mobile-shift)) !important;
+  } /* <— questa graffa mancava! */
 
   /* Abilita scroll su mobile */
   html,body{ height:auto; overflow:auto; }
@@ -307,7 +309,7 @@ header.topbar .logo-img{ height: var(--logo-site); }
   /* Overlay sotto al logo */
   .overlay{ z-index:180 !important; }
 
-  /* Tabs mobile: a pettine a destra, testo orizzontale, NO grow */
+  /* Tabs mobile: a pettine a destra, NO grow */
   #tabs{
     position:fixed; top: calc(var(--headerH) + 8px); right: var(--tabOffset); left:auto;
     z-index:180; display:flex; flex-direction:column; align-items:flex-end;
@@ -324,16 +326,16 @@ header.topbar .logo-img{ height: var(--logo-site); }
   #tabs .vtab .label{ display:block; font-weight:700; writing-mode: horizontal-tb !important; transform:none !important; }
   #tabs .vtab .icon{ display:none !important; }
 
-  /* Disattiva qualsiasi crescita su hover/active */
+  /* No grow su hover/active */
   #tabs .vtab:hover,
   #tabs .vtab:active,
   #tabs .vtab.active{
     height: 40px !important; width: var(--tabW) !important; padding: 0 12px !important; transform:none !important;
   }
-  /* Fallback se il browser ignorasse gap */
+  /* Fallback se gap non è supportato */
   #tabs .vtab + .vtab{ margin-top: var(--tabGap); }
 
-  /* Modalità compatta: attivo identico, altri si rimpiccioliscono (icone) */
+  /* Compact: attivo uguale, altri a icona */
   #tabs.compact .vtab.active{ width: var(--tabW) !important; padding:0 12px !important; }
   #tabs.compact .vtab:not(.active){
     width: 36px !important; padding:0 !important; justify-content:center !important;
@@ -341,7 +343,7 @@ header.topbar .logo-img{ height: var(--logo-site); }
   #tabs.compact .vtab:not(.active) .label{ display:none !important; }
   #tabs.compact .vtab:not(.active) .icon{ display:inline !important; }
 
-  /* “Contatti” in basso, stessa misura e sporgente */
+  /* “Contatti” in basso */
   #contactTab{
     position:fixed; right:var(--tabOffset); bottom:12px; z-index:180;
     display:flex; align-items:center; justify-content:flex-start;
@@ -351,33 +353,11 @@ header.topbar .logo-img{ height: var(--logo-site); }
     white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
   }
 
-  /* Dentro un progetto (mobile): nessuna fascia di rispetto sopra */
+  /* Dentro un progetto: niente fascia in alto */
   #overlay:not(.hidden) .overlay-scroll,
   #overlay:not(.hidden) #overlayScroll{ padding-top: 0 !important; }
   #overlay .project-sheet, #overlay .sheet, #overlay .sheet-media{ margin-top:0 !important; }
 
-  /* Niente X: si chiude via swipe (JS) */
+  /* No “X”: chiusura via swipe (JS) */
   #closeOverlay{ display:none !important; }
-}
-
-/* Smartphone */
-@media (max-width:640px){
-  :root{ --gap:14px; --headerH:96px; }
-  .gallery.ten{ grid-template-columns: repeat(2,1fr); }
-  .stage{ padding-top: calc(var(--headerH) + 16px); padding-left:12px; padding-right:12px; }
-  #overlayScroll{ padding-left:12px; padding-right:12px; }
-  #preloader img.logo-pre{ transform: translateY(-20px); }
-}
-
-/* Smartphone molto piccolo */
-@media (max-width:380px){
-  .gallery.ten{ grid-template-columns:1fr; }
-}
-
-/* Nascondi tabs quando non devono vedersi */
-#preloader:not(.hide) ~ #tabs,
-#preloader:not(.hide) ~ #contactTab{ display:none !important; }
-@media (max-width:900px){
-  body:has(#overlay:not(.hidden)) #tabs,
-  body:has(#overlay:not(.hidden)) #contactTab{ display:none !important; }
 }
