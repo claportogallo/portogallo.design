@@ -222,7 +222,7 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
 }
 
 
-/* ===== Responsive & Mobile (sezione aggiornata) ===== */
+/* ===== Responsive & Mobile (v definitivo) ===== */
 
 /* Base: card quadrate */
 .gallery.ten{ display:grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap, 22px); }
@@ -239,18 +239,19 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   :root{
     --gap: 18px;
     --headerH: clamp(64px, 9vw, 110px);
+    --tabW: 164px;      /* lunghezza uniforme linguette */
   }
 
   /* Griglia a 3 colonne */
   .gallery.ten{ grid-template-columns: repeat(3, 1fr); }
 
-  /* Header fisso con logo a DESTRA sempre visibile */
+  /* Header fisso con logo a SINISTRA sempre visibile */
   header.topbar{
     position: fixed; top:0; left:0; right:0; z-index:220;
     height: var(--headerH);
-    display:flex; align-items:center; justify-content:flex-end; /* destra */
+    display:flex; align-items:center; justify-content:flex-start; /* sinistra */
     background: var(--bg);
-    padding-right: 12px;
+    padding-left: 12px;
   }
   /* Logo più grande su mobile/tablet */
   header.topbar .logo-img{
@@ -268,37 +269,43 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   html, body{ height:auto; overflow:auto; }
   body.no-scroll{ overflow:hidden; }
 
-  /* TABS: “a pettine” in COLONNA a destra, che sporgono un po’ fuori */
+  /* TABS: “a pettine” in COLONNA a destra, sporgono e con spaziatura più ampia */
   #tabs{
     position: fixed;
     top: calc(var(--headerH) + 8px);
-    right: -10px;              /* sporge fuori */
+    right: -10px;              /* sporge un po' fuori dallo schermo */
     left: auto;
-    z-index: 180;              /* sotto al preloader (che è 200) */
+    z-index: 180;              /* sotto al preloader (200) */
     display:flex;
-    flex-direction: column;    /* uno sopra l'altro */
+    flex-direction: column;    /* uno sopra l’altro */
     align-items: flex-end;     /* allineati al bordo destro */
-    gap: 8px;
+    gap: 12px;                 /* più spazio tra le linguette */
     padding: 0;
     background: transparent;
     overflow: visible;
     height: auto; width: auto;
   }
   .vtab{
-    writing-mode: initial;     /* testo orizzontale */
+    writing-mode: initial;               /* testo orizzontale */
     display: inline-flex;
-    align-items: center; justify-content: center;
-    height: 40px; width: auto;
-    padding: 0 10px;
-    border-radius: 4px 0 0 4px; /* linguetta */
+    align-items: center; justify-content: flex-end; /* testo “chiuso” a destra */
+    height: 40px;
+    width: var(--tabW);                  /* TUTTE LUNGHE UGUALI */
+    padding: 0 12px;
+    text-align: right;
+    border-radius: 4px 0 0 4px;          /* forma linguetta */
     position: relative;
-    /* opzionale: background:#000; color:#fff; */
+    /* se vuoi il fondo nero: sblocca qui sotto */
+    /* background:#000; color:#fff; */
   }
-  .vtab .label, .vtab .icon{ display:inline; transform:none; position:static; font-weight:700; }
+  /* NIENTE ICONE su mobile (home) */
+  .vtab .icon{ display:none !important; }
+  .vtab .label{ display:block; transform:none; position:static; font-weight:700; }
+
   .tabs.compact .vtab:not(.active),
   .tabs.compact .vtab:not(.active):hover{ height:40px; }
 
-  /* Overlay/scheda progetto */
+  /* Overlay/scheda progetto (rispetto header) */
   #overlayScroll{
     padding-top: calc(var(--headerH) + 10px);
     padding-left: 6vw; padding-right: 6vw; padding-bottom: 10vh;
@@ -310,15 +317,18 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
     padding:0 16px; font-size:14px;
   }
 
-  /* Hover overlay: supporto touch */
-  .card.touchshow .mask{ opacity:1; background: rgba(255,255,255,.5); }
+  /* HIDE TABS quando il PRELOADER è visibile */
+  #preloader:not(.hide) ~ #tabs { display: none !important; }
+
+  /* HIDE TABS quando è aperto l’OVERLAY (sei dentro un progetto) */
+  body:has(#overlay:not(.hidden)) #tabs { display: none !important; }
 }
 
 /* Smartphone medio/piccolo */
 @media (max-width: 640px){
   :root{
     --gap: 14px;
-    --headerH: 96px; /* header più alto per il logo grande */
+    --headerH: 96px;   /* header un po’ più alto per logo grande */
   }
 
   /* Griglia 2 colonne */
@@ -344,7 +354,3 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   background:#fff; margin:0; border:0;
 }
 #sheetMedia img.is-ready{ opacity:1; }
-
-/* ----- Fix Preloader vs Tabs ----- */
-/* Finché il preloader è visibile, nascondi i tabs (vale anche su mobile) */
-#preloader:not(.hide) ~ #tabs { display: none !important; }
