@@ -165,8 +165,19 @@ function openProject(data){
   sheetTitle.textContent = data.title || 'Progetto';
   sheetDesc.textContent  = data.desc || '';
   sheetMedia.innerHTML = '';
+
   const imgs = Array.isArray(data.images) ? data.images : [];
-  imgs.forEach(src => { const im=document.createElement('img'); im.src=src; sheetMedia.appendChild(im); });
+  imgs.forEach(src => {
+    const im = new Image();
+    im.loading = 'eager';          // evita lazy e glitch su iOS
+    im.decoding = 'async';
+    im.src = src;
+    im.addEventListener('load', () => {
+      im.classList.add('is-ready'); // ora può mostrare bordo + opacità
+    });
+    sheetMedia.appendChild(im);
+  });
+
   setMode('project');
 }
 
