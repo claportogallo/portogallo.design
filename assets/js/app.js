@@ -237,30 +237,62 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 
-// === Compact tabs on mobile (drop-in, fine file) ===
+// === Mobile-only (<=900px): compact tabs & swipe-to-close ===
 (function () {
-  const tabsEl = document.getElementById('tabs');
-  if (!tabsEl) return;
+  var mq = window.matchMedia('(max-width: 900px)');
+  var tabsEl = document.getElementById('tabs');
+  var home = document.getElementById('homeBtn');
+  var overlay = document.getElementById('overlay');
+  var closeBtn = document.getElementById('closeOverlay');
 
-  // Event delegation: ascolta click solo su .vtab
-  tabsEl.addEventListener('click', (e) => {
-    const btn = e.target.closest('.vtab');
+  // Tabs: attivo fermo, gli altri si restringono (solo mobile)
+  function onTabsClick(e){
+    if (!mq.matches || !tabsEl) return;
+    var btn = e.target.closest('.vtab');
     if (!btn || !tabsEl.contains(btn)) return;
-
-    // marca l’attivo
-    tabsEl.querySelectorAll('.vtab').forEach(b => b.classList.remove('active'));
+    tabsEl.querySelectorAll('.vtab').forEach(function(b){ b.classList.remove('active'); });
     btn.classList.add('active');
-
-    // entra in modalità compatta (gli altri si restringono)
-    tabsEl.classList.add('compact');
-  }, { passive: true });
-
-  // Facoltativo: tornando “Home” resetti lo stato compatto
-  const home = document.getElementById('homeBtn');
-  if (home) {
-    home.addEventListener('click', () => {
-      tabsEl.classList.remove('compact');
-      tabsEl.querySelectorAll('.vtab').forEach(b => b.classList.remove('active'));
-    }, { passive: true });
+    tabsEl.classList.add('compact'); // gli altri diventano icona (CSS)
   }
+
+  // Reset quando tocchi il logo Home (solo mobile)
+  function onHomeClick(){
+    if (!mq.matches || !tabsEl) return;
+    tabsEl.classList.remove('compact');
+    tabsEl.querySelectorAll('.vtab').forEach(function(b){ b.classList.remove('active'); });
+  }
+
+  // Swipe-right per chiudere il progetto (solo mobile)
+  var sx = 0, sy = 0, tracking = false;
+  function onTouchStart(e){
+    if (!mq.matches || !overlay) return;
+    var t = e.touches[0]; sx = t.clientX; sy = t.clientY; tracking = true;
+  }
+  function onTouchEnd(e){
+    if (!mq.matches || !overlay || !tracking) return;
+    tracking = false;
+    var t = e.changedTouches[0];
+    var dx = t.clientX - sx;
+    var dy = Math.abs(t.clientY - sy);
+    if (dx > 60 && dy < 40 && closeBtn) closeBtn.click(); // swipe a destra
+  }
+
+  // Attach listeners
+  if (tabsEl) tabsEl.addEventListener('click', onTabsClick, { passive: true });
+  if (home) home.addEventListener('click', onHomeClick, { passive: true });
+  if (overlay) {
+    overlay.addEventListener('touchstart', onTouchStart, { passive: true });
+    overlay.addEventListener('touchend', onTouchEnd, { passive: true });
+  }
+
+  // Se torni sopra i 900px, ripulisci lo stato compatto
+  function onBreakpointChange(ev){
+    if (!ev.matches && tabsEl){
+      tabsEl.classList.remove('compact');
+      tabsEl.querySelectorAll('.vtab').forEach(function(b){ b.classList.remove('active'); });
+    }
+  }
+  if (mq.addEventListener) mq.addEventListener('change', onBreakpointChange);
+  else if (mq.addListener) mq.addListener(onBreakpointChange); // Safari vecchi
 })();
+
