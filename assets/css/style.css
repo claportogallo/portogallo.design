@@ -222,14 +222,12 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
 }
 
 
-/* ===== Responsive & Mobile — v3 ===== */
+/* ===== Responsive & Mobile — v6 CONSOLIDATA ===== */
 
-/* Base */
+/* Base desktop + tablet grande */
 .gallery.ten{ display:grid; grid-template-columns: repeat(5, 1fr); gap: var(--gap, 22px); }
 .card{ position:relative; aspect-ratio: 1/1; overflow:hidden; }
 .card img{ width:100%; height:100%; object-fit:cover; display:block; }
-
-/* Tablet grande */
 @media (max-width:1200px){ .gallery.ten{ grid-template-columns: repeat(4,1fr); } }
 
 /* ===== Tablet/Mobile ===== */
@@ -237,34 +235,36 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   :root{
     --gap: 18px;
     --headerH: clamp(64px, 9vw, 110px);
-
-    /* Tabs tuning */
-    --tabW: 100px;     /* PIÙ STRETTE: riduci se vuoi (es. 92px) */
-    --tabGap: 8px;     /* PIÙ VICINE (ma non sovrapposte) */
-    --tabOffset: -12px;/* sporgenza a destra (negativo = fuori) */
+    /* Tabs */
+    --tabW: 88px;     /* larghezza linguetta (stretta) */
+    --tabGap: 4px;    /* distanza tra linguette */
+    --tabOffset: -12px; /* sporgenza a destra (negativo = fuori) */
   }
 
   /* Griglia a 3 colonne */
   .gallery.ten{ grid-template-columns: repeat(3, 1fr); }
 
-  /* Header fisso; logo a SINISTRA; fascia TRASPARENTE */
+  /* Header fisso, logo a SINISTRA, fascia TRASPARENTE; z-order sotto il preloader */
   header.topbar{
-    position:fixed; top:0; left:0; right:0; z-index:220;
+    position:fixed; top:0; left:0; right:0; z-index:190 !important;
     height:var(--headerH);
     display:flex; align-items:center; justify-content:flex-start;
     background:transparent; padding-left:12px;
   }
   header.topbar .logo-img{ height:clamp(56px, 14vw, 112px); display:block; }
 
-  /* Contenuti sotto header */
+  /* Contenuti sotto header (solo home) */
   .stage{
     padding-top: calc(var(--headerH) + 16px);
-    padding-left:6vw; padding-right:6vw; padding-bottom:12vh;
+    padding-left: 6vw; padding-right: 6vw; padding-bottom: 12vh;
   }
 
-  /* Scroll abilitato */
+  /* Sblocco scroll */
   html,body{ height:auto; overflow:auto; }
   body.no-scroll{ overflow:hidden; }
+
+  /* Overlay sotto al logo */
+  .overlay{ z-index:180 !important; }
 
   /* ===== TABS a pettine a destra ===== */
   #tabs{
@@ -276,43 +276,31 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
     gap: var(--tabGap);
     padding:0; background:transparent; overflow:visible;
     height:auto; width:auto;
-    transform:none !important;
   }
-
   .vtab{
-    /* testo ORIZZONTALE e dentro la linguetta */
-    writing-mode: horizontal-tb !important;
-    transform:none !important;
-
-    width: var(--tabW); height:40px;
-    padding:0 12px;
+    writing-mode: horizontal-tb !important; transform:none !important;
+    display:inline-flex; align-items:center; justify-content:flex-start;
+    width: var(--tabW); height:40px; padding:0 12px;
+    text-align:left; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
     border-radius:4px 0 0 4px;
     background:#000; color:#fff;
-
-    display:inline-flex; align-items:center; justify-content:flex-start;
-    text-align:left; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-
-    /* nessun “grow” su tap/hover */
-    transition: none;
+    transition: none !important;            /* niente animazioni/grow */
   }
-  .vtab .icon{ display:none !important; }      /* nessuna icona in home */
-  .vtab .label{
-    display:block; font-weight:700;
-    writing-mode: horizontal-tb !important; transform:none !important;
-  }
+  .vtab .icon{ display:none !important; }   /* niente icone in home */
+  .vtab .label{ display:block; font-weight:700; }
 
-  /* Fallback se il browser ignorasse gap */
+  /* fallback se il browser ignorasse gap */
   .vtab + .vtab{ margin-top: var(--tabGap); }
 
-  /* —— Modalità compatta: il selezionato resta identico, gli altri si rimpiccioliscono —— */
+  /* Modalità compatta: l’attivo resta identico, gli altri diventano icona */
   #tabs.compact .vtab.active{
-    width: var(--tabW); padding:0 12px;        /* NON si ingrandisce */
+    width: var(--tabW) !important; padding:0 12px !important;
   }
   #tabs.compact .vtab:not(.active){
-    width: 40px; padding:0; justify-content:center;
+    width: 36px !important; padding:0 !important; justify-content:center !important;
   }
-  #tabs.compact .vtab:not(.active) .label{ display:none; }
-  #tabs.compact .vtab:not(.active) .icon{ display:inline; } /* se vuoi mostrare icone: togli questo commento */
+  #tabs.compact .vtab:not(.active) .label{ display:none !important; }
+  #tabs.compact .vtab:not(.active) .icon{ display:inline !important; }
 
   /* “Contatti” in basso, stessa misura e sporgente */
   #contactTab{
@@ -320,17 +308,24 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
     display:flex; align-items:center; justify-content:flex-start;
     width:var(--tabW); height:40px; padding:0 12px;
     border-radius:4px 0 0 4px; background:#000; color:#fff; text-decoration:none;
-    border:0; box-shadow:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+    border:0; box-shadow:none; font-size:12px; line-height:1;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
   }
 
-  /* Overlay/scheda progetto: NIENTE fascia di rispetto in alto (logo “volante”) */
-  body:has(#overlay:not(.hidden)) #overlayScroll{ padding-top: 0 !important; }
+  /* ===== Dentro un progetto: nessuna fascia di rispetto sopra ===== */
+  #overlay:not(.hidden) .overlay-scroll,
+  #overlay:not(.hidden) #overlayScroll{
+    padding-top: 0 !important;
+  }
+  #overlay .project-sheet,
+  #overlay .sheet,
+  #overlay .sheet-media{ margin-top:0 !important; }
 
-  /* Supporto touch overlay */
-  .card.touchshow .mask{ opacity:1; background:rgba(255,255,255,.5); }
+  /* Niente X: chiusura via swipe (gestita da JS) */
+  #closeOverlay{ display:none !important; }
 }
 
-/* Smartphone */
+/* ===== Smartphone ===== */
 @media (max-width:640px){
   :root{ --gap:14px; --headerH:96px; }
   .gallery.ten{ grid-template-columns: repeat(2,1fr); }
@@ -339,74 +334,17 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   #preloader img.logo-pre{ transform: translateY(-20px); }
 }
 
-/* Smartphone molto piccolo */
-@media (max-width:380px){ .gallery.ten{ grid-template-columns:1fr; } }
+/* ===== Smartphone molto piccolo ===== */
+@media (max-width:380px){
+  .gallery.ten{ grid-template-columns:1fr; }
+}
 
-/* Media container imgs */
-#sheetMedia img{ display:block; width:100%; height:auto; opacity:0; transition:opacity .2s ease; background:#fff; margin:0; border:0; }
-#sheetMedia img.is-ready{ opacity:1; }
-
-/* Tabs off durante preloader e dentro progetto */
+/* ===== Nascondi tabs quando non devono vedersi ===== */
+/* Durante il preloader (vale sempre) */
 #preloader:not(.hide) ~ #tabs,
 #preloader:not(.hide) ~ #contactTab{ display:none !important; }
+/* Dentro un progetto su mobile */
 @media (max-width:900px){
   body:has(#overlay:not(.hidden)) #tabs,
   body:has(#overlay:not(.hidden)) #contactTab{ display:none !important; }
-}
-/* ===== Mobile fixes v4 (override) ===== */
-@media (max-width: 900px){
-  /* tabs ancora più vicini e più stretti */
-  :root{
-    --tabW: 92px;     /* larghezza linguetta */
-    --tabGap: 6px;    /* spazio tra linguette */
-    --tabOffset: -12px;
-  }
-
-  /* testo orizzontale dentro la linguetta, no flip */
-  #tabs .vtab,
-  #tabs .vtab .label{
-    writing-mode: horizontal-tb !important;
-    transform: none !important;
-  }
-
-  /* niente ingrandimento del tab attivo, né su hover/active */
-  #tabs .vtab{ transition: none !important; }
-  #tabs .vtab:hover,
-  #tabs .vtab:active,
-  #tabs .vtab.active{
-    transform: none !important;
-    width: var(--tabW) !important;
-    padding: 0 12px !important;
-  }
-
-  /* modalità compatta: SOLO gli altri si restringono a icona */
-  #tabs.compact .vtab:not(.active){
-    width: 36px !important;
-    padding: 0 !important;
-    justify-content: center !important;
-  }
-  #tabs.compact .vtab:not(.active) .label{ display: none !important; }
-  #tabs.compact .vtab:not(.active) .icon{ display: inline !important; }
-
-  /* tabs a pettine: gap + fallback margine */
-  #tabs{ gap: var(--tabGap) !important; }
-  #tabs .vtab + .vtab{ margin-top: var(--tabGap) !important; }
-
-  /* “Contatti” stessa dimensione e stile dei tab */
-  #contactTab{
-    font-size: 12px !important; line-height: 1 !important;
-    width: var(--tabW) !important; height: 40px !important;
-    padding: 0 12px !important;
-    border-radius: 4px 0 0 4px !important;
-    right: var(--tabOffset) !important;
-    background: #000 !important; color: #fff !important;
-  }
-
-  /* dentro un progetto: niente fascia di rispetto sopra (scroll sotto al logo) */
-  body:has(#overlay:not(.hidden)) #overlayScroll{
-    padding-top: 0 !important;
-  }
-
-  /* nascondi la X nell’overlay su mobile */
-  #closeOverlay{ display: none !important; }
 }
