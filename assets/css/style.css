@@ -296,3 +296,56 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   margin: 0 0 16px 0;
 }
 
+/* --- PRELOADER: centrato, logo grande, puntini orizzontali --- */
+#preloader{
+  position: fixed !important;
+  inset: 0 !important;
+  background: #fff !important;
+  z-index: 9999 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* logo preloader (2× rispetto a prima) */
+#preloader .logo-pre,
+#preloader .logo-preloader{
+  height: 120px !important;  /* era ~60px: ora il doppio */
+  width: auto !important;
+  display: block !important;
+  margin: 0 auto 18px !important;
+}
+
+/* lista puntini orizzontale e centrata */
+.loading-dots, #preDots{
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* puntini grigi chiari che diventano neri “a scatti” */
+.loading-dots li, #preDots li{
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background: #d0d0d0 !important;   /* grigio chiaro */
+  animation: dotStep 1.1s infinite steps(1,end) !important;
+}
+
+.loading-dots li:nth-child(1), #preDots li:nth-child(1){ animation-delay: 0s !important; }
+.loading-dots li:nth-child(2), #preDots li:nth-child(2){ animation-delay: .15s !important; }
+.loading-dots li:nth-child(3), #preDots li:nth-child(3){ animation-delay: .30s !important; }
+.loading-dots li:nth-child(4), #preDots li:nth-child(4){ animation-delay: .45s !important; }
+.loading-dots li:nth-child(5), #preDots li:nth-child(5){ animation-delay: .60s !important; }
+
+@keyframes dotStep{
+  0%   { background:#111; }      /* puntino “attivo” nero */
+  20%  { background:#d0d0d0; }   /* torna grigio chiaro */
+  100% { background:#d0d0d0; }
+}
