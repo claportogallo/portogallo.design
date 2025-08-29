@@ -271,6 +271,9 @@ header.topbar .logo-img{ height: var(--logo-site); }
     --tabW: 88px;         /* larghezza linguetta */
     --tabGap: 4px;        /* spazio tra linguette */
     --tabOffset: -12px;   /* sporgenza a destra (negativo = fuori) */
+
+    /* Offset verticale del logo su mobile (home + progetti) */
+    --logo-mobile-offset: 10px; /* prova 8–16px */
   }
 
   /* Header mobile: logo a sinistra, fascia trasparente; sopra l'overlay */
@@ -280,8 +283,13 @@ header.topbar .logo-img{ height: var(--logo-site); }
     display:flex; align-items:center; justify-content:flex-start;
     background:transparent; padding-left:12px;
   }
-  header.topbar .logo-img{ height: var(--logo-site) !important; }
 
+  /* Logo mobile: taglia + abbassamento */
+  header.topbar .logo-img{
+    height: var(--logo-site) !important;
+    transform: translateY(var(--logo-mobile-offset)) !important;
+  }
+  
   /* Stage mobile (home) */
   .stage{ padding-top: calc(var(--headerH) + 16px); padding-left: 6vw; padding-right: 6vw; padding-bottom: 12vh; }
 
