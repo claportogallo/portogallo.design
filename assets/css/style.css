@@ -280,15 +280,39 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
 /* Hover overlay touch support */
 .card.touchshow .mask{ opacity:1; background: rgba(255,255,255,.5); }
 
-/* Logo */
-.logo {
-  width: 80px;      /* larghezza desktop */
-  height: auto;
-  display: block;
-}
-
-@media (max-width: 768px) {
-  .logo {
-    width: 60px;    /* larghezza mobile */
+/* ===== Mobile tabs RIGHT (horizontal bars) — r2 ===== */
+@media (max-width: 900px){
+  /* stack a destra sotto al logo */
+  #tabs{
+    position: fixed;
+    top: calc(env(safe-area-inset-top, 0) + 12px);
+    right: 12px;
+    z-index: 210;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+    background: transparent;
+    padding: 0;
   }
+  /* barre orizzontali, testo non ruotato */
+  #tabs .vtab{
+    writing-mode: initial;
+    transform: none;
+    height: 36px;
+    width: clamp(160px, 42vw, 260px);
+    min-width: 160px;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 0;
+  }
+  #tabs .vtab .label{ display:block; transform:none; position:static; text-align:left; }
+  #tabs .vtab .icon{ display:none; } /* su mobile niente icone */
+  /* in modalità compact NON ridurre, restano uguali */
+  #tabs.compact .vtab{ height:36px; opacity:1; }
+
+  /* corridoio a destra per non sovrapporsi a card/schede */
+  .stage, #overlayScroll{ padding-right: clamp(180px, 46vw, 300px); }
 }
