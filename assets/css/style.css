@@ -7,9 +7,9 @@
   --tab-thickness: 28px;    /* spessore segnalibro */
   --top-corridor: 140px;    /* fascia superiore desktop */
 
-  /* Logo: grande = preloader + progetti; home desktop = -20% */
-  --logo-desktop-large: 120px;
-  --logo-home-desktop: calc(var(--logo-desktop-large) * 0.8);
+  /* Logo: grande = preloader; ovunque nel sito = -25% */
+  --logo-desktop-large: 120px;             /* modifica qui la taglia "grande" */
+  --logo-site: calc(var(--logo-desktop-large) * 0.75); /* 75% del preloader */
 }
 
 *{ box-sizing:border-box; }
@@ -141,15 +141,15 @@ body{
 @media (max-width:1024px){ .project-sheet .sheet{ grid-template-columns:1fr; } }
 
 /* PROGETTI: immagini senza bordo, attaccate (sempre) */
-.sheet-media{ border:0 !important; }
+.sheet-media{ border:0 !important; padding:0 !important; margin:0 !important; line-height:0 !important; }
 .sheet-media img,
 #sheetMedia img{
-  display:block; width:100%; height:auto;
-  margin:0 !important; padding:0 !important;
-  border:0 !important; box-shadow:none !important; background:transparent !important;
-  opacity:0; transition: opacity .2s ease;
+  display:block !important; width:100% !important; height:auto !important;
+  margin:0 !important; padding:0 !important; border:0 !important;
+  box-shadow:none !important; background:transparent !important;
+  opacity:1; transition:none;            /* niente fade, niente bordo */
 }
-#sheetMedia img.is-ready{ opacity:1; }  /* solo fade-in */
+#sheetMedia img.is-ready{ border:0 !important; }
 
 /* Meta */
 .sheet-meta{ position:sticky; top:24px; }
@@ -206,7 +206,7 @@ body{
 @keyframes fillDot{ from{ background: var(--dot); } to{ background: #0b0b0c; } }
 
 #preloader img{ transform: translateY(-40px); }
-/* Logo preloader = grande (come nei progetti) */
+/* Logo preloader = grande */
 #preloader img.logo-pre{ height: var(--logo-desktop-large); }
 
 /* Hover overlay su card (home) */
@@ -222,19 +222,15 @@ body{
 .mask .title{ font-weight: 900; color: #0b0b0c; letter-spacing: .2px; }
 .mask .meta{ margin-top: 6px; font-size: 13px; color: #0b0b0c; opacity: .85; }
 
-/* Desktop: logo header */
-@media (min-width: 901px){
-  /* Default (progetti, about, ecc.): grande */
-  header.topbar .logo-img{ height: var(--logo-desktop-large); }
-  /* Solo HOME desktop: -20% */
-  body:not(.mode-project) header.topbar .logo-img{ height: var(--logo-home-desktop); }
-}
+/* Desktop: logo header (uguale in tutto il sito, -25% del preloader) */
+header.topbar .logo-img{ height: var(--logo-site); }
 
 /* ======== MOBILE / TABLET ======== */
 @media (max-width:900px){
   :root{
     --gap: 18px;
     --headerH: clamp(64px, 9vw, 110px);
+
     /* Tabs mobile */
     --tabW: 88px;         /* larghezza linguetta */
     --tabGap: 4px;        /* spazio tra linguette */
@@ -248,7 +244,8 @@ body{
     display:flex; align-items:center; justify-content:flex-start;
     background:transparent; padding-left:12px;
   }
-  header.topbar .logo-img{ height:clamp(56px, 14vw, 112px); display:block; }
+  /* Forza la stessa taglia ridotta anche su mobile */
+  header.topbar .logo-img{ height: var(--logo-site) !important; }
 
   /* Stage mobile (home) */
   .stage{ padding-top: calc(var(--headerH) + 16px); padding-left: 6vw; padding-right: 6vw; padding-bottom: 12vh; }
