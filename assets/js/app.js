@@ -17,11 +17,22 @@ const sheetDesc  = document.getElementById('sheetDesc');
 const year = document.getElementById('year'); if (year) year.textContent = new Date().getFullYear();
 const preloader = document.getElementById('preloader');
 
+/* ====== PRELOADER HARDENED (punto C) ====== */
+let PRELOADER_DONE = false;
 function endPreloader(){
-  if(!preloader) return;
+  if (PRELOADER_DONE) return;
+  PRELOADER_DONE = true;
+  if (!preloader) return;
   preloader.classList.add('hide');
-  setTimeout(()=> preloader.style.display='none', 450);
+  setTimeout(()=> preloader.style.display='none', 500);
 }
+// chiusura sicura dopo il load della pagina
+window.addEventListener('load', () => {
+  setTimeout(() => { endPreloader(); revealGridStagger(); }, 600);
+});
+// ulteriore rete di sicurezza: chiudi comunque dopo 3.5s
+setTimeout(() => { endPreloader(); }, 3500);
+/* ========================================== */
 
 // Rivela le card visibili con uno "stagger"
 function revealGridStagger(){
@@ -219,7 +230,6 @@ document.addEventListener('DOMContentLoaded', () => {
     revealGridStagger();
   }, 3000);
 });
-
 
 // Touch: mostra overlay per ~1s al tap senza aprire il progetto
 (function(){
