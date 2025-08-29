@@ -353,3 +353,60 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
   body:has(#overlay:not(.hidden)) #tabs,
   body:has(#overlay:not(.hidden)) #contactTab{ display:none !important; }
 }
+/* ===== Mobile fixes v4 (override) ===== */
+@media (max-width: 900px){
+  /* tabs ancora più vicini e più stretti */
+  :root{
+    --tabW: 92px;     /* larghezza linguetta */
+    --tabGap: 6px;    /* spazio tra linguette */
+    --tabOffset: -12px;
+  }
+
+  /* testo orizzontale dentro la linguetta, no flip */
+  #tabs .vtab,
+  #tabs .vtab .label{
+    writing-mode: horizontal-tb !important;
+    transform: none !important;
+  }
+
+  /* niente ingrandimento del tab attivo, né su hover/active */
+  #tabs .vtab{ transition: none !important; }
+  #tabs .vtab:hover,
+  #tabs .vtab:active,
+  #tabs .vtab.active{
+    transform: none !important;
+    width: var(--tabW) !important;
+    padding: 0 12px !important;
+  }
+
+  /* modalità compatta: SOLO gli altri si restringono a icona */
+  #tabs.compact .vtab:not(.active){
+    width: 36px !important;
+    padding: 0 !important;
+    justify-content: center !important;
+  }
+  #tabs.compact .vtab:not(.active) .label{ display: none !important; }
+  #tabs.compact .vtab:not(.active) .icon{ display: inline !important; }
+
+  /* tabs a pettine: gap + fallback margine */
+  #tabs{ gap: var(--tabGap) !important; }
+  #tabs .vtab + .vtab{ margin-top: var(--tabGap) !important; }
+
+  /* “Contatti” stessa dimensione e stile dei tab */
+  #contactTab{
+    font-size: 12px !important; line-height: 1 !important;
+    width: var(--tabW) !important; height: 40px !important;
+    padding: 0 12px !important;
+    border-radius: 4px 0 0 4px !important;
+    right: var(--tabOffset) !important;
+    background: #000 !important; color: #fff !important;
+  }
+
+  /* dentro un progetto: niente fascia di rispetto sopra (scroll sotto al logo) */
+  body:has(#overlay:not(.hidden)) #overlayScroll{
+    padding-top: 0 !important;
+  }
+
+  /* nascondi la X nell’overlay su mobile */
+  #closeOverlay{ display: none !important; }
+}
