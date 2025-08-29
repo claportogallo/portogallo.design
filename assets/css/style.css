@@ -180,7 +180,7 @@ body.mode-project .tabs.compact .vtab:not(.active):hover{ height: 92px; } /* mic
 
 /* Preloader brand */
 #preloader img {
-  margin-top: -20px;  /* regola tu il valore */
+  margin-top: -100px;  /* regola tu il valore */
 }
 
 /* --- Hover overlay su card --- */
