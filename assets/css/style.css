@@ -8,8 +8,8 @@
   --top-corridor: 140px;    /* fascia superiore desktop */
 
   /* Logo: grande = preloader; ovunque nel sito = -25% */
-  --logo-desktop-large: 150px;                         /* cambia qui la taglia “grande” */
-  --logo-site: calc(var(--logo-desktop-large) * 0.75); /* 75% del preloader */
+  --logo-desktop-large: 150px;                        /* taglia “grande” */
+  --logo-site: calc(var(--logo-desktop-large) * 0.75);/* 75% del preloader */
 }
 
 *{ box-sizing:border-box; }
@@ -27,7 +27,7 @@ body{
   cursor:default;
 }
 
-/* Header / brand (desktop base) */
+/* Header / brand (base) */
 .topbar.left{ position:fixed; left:0; top:0; padding:18px 20px; z-index:140; }
 .brand a{ font-weight:900; letter-spacing:1px; text-transform:uppercase; color:var(--ink); text-decoration:none; }
 
@@ -37,7 +37,7 @@ body{
 .backzones .left{ left:0; top:var(--top-corridor); bottom:0; width:6vw; }
 .backzones .right{ right:0; top:var(--top-corridor); bottom:0; width:6vw; }
 
-/* Tabs (DESKTOP) */
+/* Tabs: struttura comune */
 .tabs.ribbon{
   position:fixed; left:0; top:0; right:0; height:var(--top-corridor); z-index:130;
   display:flex; gap:12px; align-items:flex-start; justify-content:flex-end;
@@ -61,37 +61,6 @@ body{
   position:absolute; bottom:8px; left:8px;
   writing-mode: horizontal-tb; transform:none;
   display:none;
-}
-
-/* Hover grow (SOLO desktop, stato normale) */
-.vtab:hover{ height: calc(var(--tab-length) + 60px); transition: height .15s ease; }
-
-/* ========== DESKTOP: COMPACT MODE (attivato da JS con #tabs.compact) ========== */
-/* Attivo: resta grande con etichetta */
-#tabs.compact .vtab.active,
-.tabs.compact .vtab.active{
-  height: calc(var(--tab-length) + 20px) !important;
-}
-#tabs.compact .vtab.active .label,
-.tabs.compact .vtab.active .label{ display:block !important; }
-#tabs.compact .vtab.active .icon,
-.tabs.compact .vtab.active .icon{ display:none !important; }
-
-/* Non attivi: piccoli con sola icona */
-#tabs.compact .vtab:not(.active),
-.tabs.compact .vtab:not(.active){
-  height:72px !important;
-}
-#tabs.compact .vtab:not(.active) .label,
-.tabs.compact .vtab:not(.active) .label{ display:none !important; }
-#tabs.compact .vtab:not(.active) .icon,
-.tabs.compact .vtab:not(.active) .icon{ display:block !important; }
-
-/* In compact, DISABILITA la crescita su hover dei non-attivi */
-#tabs.compact .vtab:not(.active):hover,
-.tabs.compact .vtab:not(.active):hover{
-  height:72px !important;
-  transition:none !important;
 }
 
 /* Contact tab (desktop) */
@@ -131,7 +100,7 @@ body{
 .card.show{ animation: cardIn .25s ease 1; }
 @keyframes cardIn{ from{ opacity:0; transform: scale(.96) } to{ opacity:1; transform: scale(1) } }
 
-/* Overlay (desktop base) */
+/* Overlay (base) */
 .overlay{
   position:fixed; inset:0; z-index:110;
   background:
@@ -173,11 +142,6 @@ body{
 }
 #sheetMedia img.is-ready{ border:0 !important; }
 
-/* === DESKTOP IN PROGETTO: tutti i tab piccoli con icona === */
-body.mode-project .tabs .vtab{ height:72px !important; }
-body.mode-project .tabs .vtab .label{ display:none !important; }
-body.mode-project .tabs .vtab .icon{ display:block !important; }
-
 /* Meta */
 .sheet-meta{ position:sticky; top:24px; }
 .sheet-meta h2{ margin:0 0 8px; }
@@ -193,14 +157,6 @@ body.mode-project .tabs .vtab .icon{ display:block !important; }
 }
 .scroll-dots li{ width:6px; height:6px; border-radius:50%; background:#bfbfbf; opacity:.9; }
 .scroll-dots li.active{ background:#0b0b0c; box-shadow:0 0 0 2px #0000000f; }
-
-/* Contatti */
-.contact-inner{ width:min(900px, 84vw); margin:0 auto; }
-.contact-inner h2{ margin:0 0 8px; }
-.contact-inner p{ margin:0 0 16px; color:#333; }
-.map iframe{ width:100%; height:300px; border:0; }
-
-.footnote{ position:fixed; bottom:10px; left:14px; font-size:12px; color:#888; z-index:120; }
 
 /* --- PRELOADER --- */
 #preloader{
@@ -249,10 +205,63 @@ body.mode-project .tabs .vtab .icon{ display:block !important; }
 .mask .title{ font-weight: 900; color: #0b0b0c; letter-spacing: .2px; }
 .mask .meta{ margin-top: 6px; font-size: 13px; color: #0b0b0c; opacity: .85; }
 
-/* Desktop: logo header (uguale in tutto il sito, -25% del preloader) */
+/* Logo header ovunque (ridotto -25% rispetto al preloader) */
 header.topbar .logo-img{ height: var(--logo-site); }
 
-/* ======== MOBILE / TABLET ======== */
+/* ===================== DESKTOP-ONLY ===================== */
+@media (min-width:901px){
+
+  /* Hover grow (SOLO desktop in stato normale) */
+  .vtab:hover{ height: calc(var(--tab-length) + 60px); transition: height .15s ease; }
+
+  /* DESKTOP: COMPACT MODE (attivato da JS con #tabs.compact) */
+  /* Attivo: resta grande con etichetta */
+  #tabs.compact .vtab.active,
+  .tabs.compact .vtab.active{
+    height: calc(var(--tab-length) + 20px) !important;
+  }
+  #tabs.compact .vtab.active .label,
+  .tabs.compact .vtab.active .label{ display:block !important; }
+  #tabs.compact .vtab.active .icon,
+  .tabs.compact .vtab.active .icon{ display:none !important; }
+
+  /* Non attivi: piccoli con sola icona */
+  #tabs.compact .vtab:not(.active),
+  .tabs.compact .vtab:not(.active){
+    height:72px !important;
+  }
+  #tabs.compact .vtab:not(.active) .label,
+  .tabs.compact .vtab:not(.active) .label{ display:none !important; }
+  #tabs.compact .vtab:not(.active) .icon,
+  .tabs.compact .vtab:not(.active) .icon{ display:block !important; }
+
+  /* In compact, disabilita la crescita su hover dei NON attivi (solo in home) */
+  body:not(.mode-project) #tabs.compact .vtab:not(.active):hover,
+  body:not(.mode-project) .tabs.compact .vtab:not(.active):hover{
+    height:72px !important;
+    transition:none !important;
+  }
+
+  /* === Dentro un progetto (desktop): tutti piccoli MA con preview su hover === */
+  body.mode-project .tabs .vtab{ height:72px !important; }
+  body.mode-project .tabs .vtab .label{ display:none !important; }
+  body.mode-project .tabs .vtab .icon{ display:block !important; }
+
+  /* Re-enable anteprima su hover anche se .compact è presente */
+  body.mode-project #tabs .vtab:hover,
+  body.mode-project .tabs .vtab:hover,
+  body.mode-project #tabs.compact .vtab:hover,
+  body.mode-project .tabs.compact .vtab:hover{
+    height: calc(var(--tab-length) + 20px) !important;
+    transition: height .15s ease !important;
+  }
+  body.mode-project #tabs .vtab:hover .label,
+  body.mode-project .tabs .vtab:hover .label{ display:block !important; }
+  body.mode-project #tabs .vtab:hover .icon,
+  body.mode-project .tabs .vtab:hover .icon{ display:none !important; }
+}
+
+/* ===================== MOBILE / TABLET ===================== */
 @media (max-width:900px){
   :root{
     --gap: 18px;
@@ -271,7 +280,6 @@ header.topbar .logo-img{ height: var(--logo-site); }
     display:flex; align-items:center; justify-content:flex-start;
     background:transparent; padding-left:12px;
   }
-  /* Forza la stessa taglia ridotta anche su mobile */
   header.topbar .logo-img{ height: var(--logo-site) !important; }
 
   /* Stage mobile (home) */
@@ -310,7 +318,7 @@ header.topbar .logo-img{ height: var(--logo-site); }
   /* Fallback se il browser ignorasse gap */
   #tabs .vtab + .vtab{ margin-top: var(--tabGap); }
 
-  /* Modalità compatta: l’attivo resta uguale, gli altri si rimpiccioliscono (icone) */
+  /* Modalità compatta: attivo identico, altri si rimpiccioliscono (icone) */
   #tabs.compact .vtab.active{ width: var(--tabW) !important; padding:0 12px !important; }
   #tabs.compact .vtab:not(.active){
     width: 36px !important; padding:0 !important; justify-content:center !important;
