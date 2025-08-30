@@ -363,6 +363,22 @@ header.topbar .logo-img{
   #closeOverlay{ display:none !important; }
 }
 
+/* ===== Forza offset logo su MOBILE (override finale) ===== */
+@media (max-width:900px){
+  /* scegli tu il valore: più piccolo = logo più in alto */
+  header.topbar{
+    padding-top: 25px !important;   /* ← metti qui 25px, 22px, 18px, ecc. */
+    align-items: flex-start !important; /* ancora il contenuto in alto */
+  }
+
+  /* solo taglia del logo; niente transform */
+  header.topbar .logo-img{
+    height: var(--logo-site) !important;
+    transform: none !important;     /* per sicurezza */
+    margin-top: 0 !important;       /* per sicurezza */
+  }
+}
+
 /* ===== FOOTNOTE FIX (desktop + mobile) ===== */
 
 /* Sempre fissata in basso a sinistra, sopra i contenuti */
