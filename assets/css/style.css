@@ -3,7 +3,7 @@
   --tab-bg:#000; --tab-text:#fff;
 
   /* Desktop tabs (verticali) */
-  --tab-length: 220px;      /* lunghezza segnalibro */
+  --tab-length: 180px;      /* lunghezza segnalibro */
   --tab-thickness: 28px;    /* spessore segnalibro */
   --top-corridor: 140px;    /* fascia superiore desktop */
 
@@ -48,7 +48,7 @@ body{
   border:0; border-radius:0; cursor:pointer;
   width:var(--tab-thickness);
   height:calc(var(--tab-length) + 20px);
-  margin-top:-20px;
+  margin-top:-25px;
   writing-mode: vertical-rl; text-orientation: mixed;
   position:relative;
 }
@@ -68,7 +68,7 @@ body{
   position:fixed; right:-160px; bottom:24px; z-index:120;
   background:#000; color:#fff; text-decoration:none;
   display:flex; align-items:center;
-  height:48px; width:calc(var(--tab-length) + 80px);
+  height:48px; width:calc(var(--tab-length) + 60px);
   padding:0 16px;
   font-weight:900; text-transform:uppercase; letter-spacing:.5px;
 }
