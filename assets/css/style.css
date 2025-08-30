@@ -273,7 +273,7 @@ header.topbar .logo-img{ height: var(--logo-site); }
     --tabOffset: -12px;   /* sporgenza a destra */
 
     /* Offset logo e griglia home */
-    --logo-mobile-offset: 30px;
+    --logo-mobile-offset: 25px;
     --home-mobile-shift: 50px;  /* +50px in basso la griglia della HOME */
   }
 
@@ -361,4 +361,22 @@ header.topbar .logo-img{
 
   /* No “X”: chiusura via swipe (JS) */
   #closeOverlay{ display:none !important; }
+}
+
+/* ===== FOOTNOTE FIX (desktop + mobile) ===== */
+
+/* Sempre fissata in basso a sinistra, sopra i contenuti */
+.footnote{
+  position: fixed !important;
+  left: 14px !important;
+  bottom: max(10px, env(safe-area-inset-bottom)) !important; /* iOS safe area */
+  font-size: 12px;
+  color: #888;
+  z-index: 185 !important; /* sopra overlay (180), sotto preloader (200) */
+  pointer-events: none;     /* non cattura i click */
+}
+
+/* Nascondi durante il preloader (così non lampeggia sotto al loader) */
+#preloader:not(.hide) ~ .footnote{
+  display: none !important;
 }
