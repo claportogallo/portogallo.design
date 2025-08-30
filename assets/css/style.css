@@ -281,15 +281,19 @@ header.topbar .logo-img{ height: var(--logo-site); }
 header.topbar{
   position:fixed; top:0; left:0; right:0; z-index:190 !important;
   height:var(--headerH);
-  display:flex; align-items:flex-start;  /* <— ancorato in alto, NON center */
+  display:flex; align-items:flex-start;  /* ancorato in alto */
   justify-content:flex-start;
   background:transparent; padding-left:12px;
-  padding-top: var(--logo-mobile-offset) !important; /* <— ora l’offset funziona */
+  padding-top: 0 !important;            /* ← niente offset sul contenitore */
 }
 
-/* Logo mobile: solo taglia */
+/* Logo mobile: taglia + offset VERO con margine */
 header.topbar .logo-img{
+  display:block;                         /* evita effetti di line-height */
   height: var(--logo-site) !important;
+  margin-top: var(--logo-mobile-offset) !important;  /* ← sposta il logo */
+  transform:none !important;             /* safety */
+  margin-bottom:0 !important;            /* safety */
 }
   
   /* Stage mobile (base) */
