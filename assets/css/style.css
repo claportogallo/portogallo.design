@@ -277,22 +277,19 @@ header.topbar .logo-img{ height: var(--logo-site); }
     --home-mobile-shift: 50px;  /* +50px in basso la griglia della HOME */
   }
 
-  /* Header mobile */
+/* Header mobile */
 header.topbar{
   position:fixed; top:0; left:0; right:0; z-index:190 !important;
   height:var(--headerH);
-  display:flex; align-items:center; justify-content:flex-start;
+  display:flex; align-items:flex-start;  /* <— ancorato in alto, NON center */
+  justify-content:flex-start;
   background:transparent; padding-left:12px;
-
-  /* spingi GIÙ il contenuto dell’header (logo compreso) */
-  padding-top: var(--logo-mobile-offset) !important;
+  padding-top: var(--logo-mobile-offset) !important; /* <— ora l’offset funziona */
 }
 
-/* Logo mobile: solo taglia (niente transform) */
+/* Logo mobile: solo taglia */
 header.topbar .logo-img{
   height: var(--logo-site) !important;
-  /* rimuovi questa linea dalla versione precedente:
-     transform: translateY(var(--logo-mobile-offset)) !important; */
 }
   
   /* Stage mobile (base) */
