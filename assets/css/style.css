@@ -273,7 +273,7 @@ header.topbar .logo-img{ height: var(--logo-site); }
     --tabOffset: -12px;   /* sporgenza a destra */
 
     /* Offset logo e griglia home */
-    --logo-mobile-offset: 25px;
+    --logo-mobile-offset: 15px;
     --home-mobile-shift: 50px;  /* +50px in basso la griglia della HOME */
   }
 
