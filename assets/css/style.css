@@ -367,7 +367,7 @@ header.topbar .logo-img{
 @media (max-width:900px){
   /* scegli tu il valore: più piccolo = logo più in alto */
   header.topbar{
-    padding-top: 18px !important;   /* ← metti qui 25px, 22px, 18px, ecc. */
+    padding-top: 5px !important;   /* ← metti qui 25px, 22px, 18px, ecc. */
     align-items: flex-start !important; /* ancora il contenuto in alto */
   }
 
