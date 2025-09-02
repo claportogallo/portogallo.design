@@ -1,6 +1,8 @@
 window.PROJECTS = {
   "Gelateria Firenze": {
-    title: "Gelateria Firenze", 
+    title: "Gelateria Firenze",
+    meta: "Firenze · 2025",
+    cats: ["architettura"], 
     desc: `<strong>Firenze 2024 - Progettazione nuova gelateria</strong>
 
 Il concept per il nuovo locale di Barroccino in via del Corso ha alla base la volontà di unire elementi caratterizzanti dell’architettura e stile fiorentino con i suoi materiali e forme.
@@ -36,6 +38,8 @@ Link:
 
   "New Brand David": { 
     title: "New Brand David", 
+    meta: "Firenze · 2023",
+    cats: ["grafica"], 
     desc: `<strong>Firenze 2023 - Brand identity e sistema illustrativo</strong>
 
 Cliente internazionale con un nuovo fondo nel centro storico di Firenze: l’obiettivo era creare un marchio iconico, subito riconoscibile e profondamente legato alla città. Il cliente ha scelto il David di Michelangelo come emblema; da questo input ho sviluppato un’illustrazione originale in stile lineare: il David sostituisce la fionda con un cono gelato e strizza l’occhio al pubblico, fondendo ironia e classicità.
@@ -61,6 +65,8 @@ Link:
 
   "Home* Project": { 
     title: "Home* Project", 
+    meta: "Milano · 2018",
+    cats: ["bimai" "architettura"], 
     desc: "Coordinamento BIM, modelli federati e tavole automatiche.", 
     images: [
       "assets/images/projects/c/1.jpg",
@@ -76,6 +82,8 @@ Link:
 
   "Vaso C.": { 
     title: "Vaso C.", 
+    meta: "Firenze · 2025",
+    cats: ["artigianato"], 
     desc: "Ceramica — gres smaltato, pezzo unico.", 
     images: [
       "assets/images/projects/d/1.jpg",
@@ -87,7 +95,9 @@ Link:
   },
 
   "Wedding M+S": { 
-    title: "Wedding M+S", 
+    title: "Wedding M+S",
+    meta: "Firenze · 2024",
+    cats: ["grafica" "wedding"], 
     desc: "Poster tipografico, stampa Riso.", 
     images: [
       "assets/images/projects/e/1.jpg",
@@ -98,8 +108,10 @@ Link:
     ]
   },
 
-  "Concept Lab": { 
-    title: "Concept Lab", 
+  "Concept Villa Dubai": { 
+    title: "Concept Villa Dubai", 
+    meta: "Milano · 2023",
+    cats: ["architettura", "bimai"], 
     desc: "Layout negozio e brand in coerenza con materiali.", 
     images: [
       "assets/images/projects/f/1.jpg",
@@ -112,6 +124,8 @@ Link:
 
   "Wedding C+G": { 
     title: "Wedding C+G", 
+    meta: "Firenze · 2024",
+    cats: ["grafica" "wedding"], 
     desc: "Save-the-date, invito e segnaposto su carta cotone.", 
     images: [
       "assets/images/projects/g/1.jpg",
@@ -123,7 +137,9 @@ Link:
   },
 
   "Automation H": { 
-    title: "Automation H", 
+    title: "Automation H",
+    meta: "Firenze · 2024",
+    cats: ["bimai"], 
     desc: "Script Revit per impaginazione e nomenclature.", 
     images: [
       "assets/images/projects/h/1.jpg",
@@ -136,6 +152,8 @@ Link:
 
   "About me": { 
     title: "About me", 
+    meta: "Firenze · 1993",
+    cats: ["about"], 
     desc: "Architetto & designer. Spazi, identità visive, processi BIM. Firenze.", 
     images: [
       "assets/images/projects/i/1.jpg",
@@ -148,6 +166,8 @@ Link:
 
   "Scultura J": { 
     title: "Scultura J", 
+    meta: "Firenze · 2024",
+    cats: ["artigianato"], 
     desc: "Pezzo unico artigianale.", 
     images: [
       "assets/images/projects/j/1.jpg",
@@ -165,7 +185,7 @@ window.KEY_TO_NAME = {
   c: "Home* Project",
   d: "Vaso C.",
   e: "Wedding M+S",
-  f: "Concept Lab",
+  f: "Concept Villa Dubai",
   g: "Wedding C+G",
   h: "Automation H",
   i: "About me",
