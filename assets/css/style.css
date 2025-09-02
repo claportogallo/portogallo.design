@@ -142,6 +142,9 @@ body{
 }
 #sheetMedia img.is-ready{ border:0 !important; }
 
+/* Mostra gli a capo della desc come line-break/paragrafi */
+#sheetDesc { white-space: pre-line; }
+
 /* Meta */
 .sheet-meta{ position:sticky; top:24px; }
 .sheet-meta h2{ margin:0 0 8px; }
