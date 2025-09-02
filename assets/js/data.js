@@ -126,9 +126,11 @@ In tavola funziona come <strong>totem domestico</strong> — scultoreo anche a v
     meta: "Amsterdam · 2024",
     cats: ["grafica","wedding"], 
     desc:  `<strong>Amsterdam 2024 - Wedding Invitation e allestimento</strong>
+<strong>realizzato con Maddalena Timossi,
+in collaborazione per Ottagono.Design</strong>
 
 <strong>Invito di matrimonio — “Amsterdam, una storia in tre atti”</strong><br><br>
-I <strong>futuri sposi</strong> desideravano che l’invito non fosse solo un cartoncino con data e indirizzo, ma un <strong>ricordo da conservare</strong>: un frammento della loro storia capace di emozionare chi lo riceve. Davanti a un caffè mi hanno raccontato di <strong>Amsterdam</strong>, della loro prima casa, dei <strong>due cani</strong> che li seguono ovunque, delle ore in cucina — lui ai fornelli, lei con lo zucchero a velo sulle mani. Da quel racconto è nato un invito che è insieme <strong>illustrazione</strong>, <strong>memoria</strong> e <strong>promessa</strong>.<br><br>
+I <strong>futuri sposi</strong> desideravano che l’invito non fosse solo un cartoncino con data e indirizzo, ma un <strong>ricordo da conservare</strong>: un frammento della loro storia capace di emozionare chi lo riceve. Davanti a un caffè ci hanno raccontato di <strong>Amsterdam</strong>, della loro prima casa, dei <strong>due cani</strong> che li seguono ovunque, delle ore in cucina — lui ai fornelli, lei con lo zucchero a velo sulle mani. Da quel racconto è nato un invito che è insieme <strong>illustrazione</strong>, <strong>memoria</strong> e <strong>promessa</strong>.<br><br>
 
 La scena è la <strong>facciata della loro casa olandese</strong>, disegnata nel blu intenso che richiama la <strong>ceramica di Delft</strong>. L’illustrazione si legge come un racconto in <strong>tre atti</strong>.<br><br>
 
@@ -154,7 +156,23 @@ A ogni posto, una <strong>gru di carta</strong> portafortuna — le stesse che l
     title: "Concept Villa Dubai", 
     meta: "Milano · 2023",
     cats: ["architettura","bimai"], 
-    desc: "Layout negozio e brand in coerenza con materiali.", 
+    desc: `<strong>Milano 2023 - Concorso internazionale Dubai</strong>
+<strong>realizzato con Tecla Caroli</strong>
+
+Progetto presentato per un <strong>nuovo quartiere residenziale di lusso</strong> a Dubai, su lotto con <strong>dimensioni e funzioni prestabilite</strong>. Obiettivo: una villa contemporanea che unisca <strong>comfort</strong>, <strong>identità locale</strong> e <strong>sostenibilità</strong> ambientale, energetica ed economica.<br><br>
+
+<strong>Concept</strong><br>
+Volumi bianchi compatti, scavati da <strong>archi</strong> e <strong>oculi</strong>, dialogano con una grande parete filtrante in laterizio ispirata alla <strong>mashrabiya</strong>: uno schermo poroso che offre <strong>privacy</strong>, controllo dell’abbagliamento e ventilazione. Tra interno ed esterno si alternano <strong>patio</strong>, <strong>loggia</strong> e <strong>pergola</strong>, microclimi ombreggiati che estendono la vita all’aperto tutto l’anno.<br><br>
+
+<strong>Distribuzione</strong><br>
+Piano terra con <strong>spazi giorno</strong> (doppia altezza), cucina e ambienti di servizio, oltre al <strong>garage</strong>.<br>
+Primo piano con <strong>camere</strong> e bagni en-suite, <strong>studio</strong> e affacci su <strong>vuoti interni</strong> protetti. La facciata materica con <strong>rampicanti</strong> contribuisce al raffrescamento evaporativo e riduce l’irraggiamento diretto.<br><br>
+
+<strong>Metodo & Tecnologie</strong><br>
+Sviluppo integrale in <strong>BIM</strong> per coordinare discipline, verificare prestazioni e integrare <strong>costi/tempi</strong> sin dalle prime fasi. Strategie ambientali: <strong>orientamento</strong> e schermature passive, <strong>ventilazione incrociata</strong>, tetto con <strong>fotovoltaico</strong>, <strong>lucernario</strong> per luce zenitale controllata, <strong>recupero dell’acqua piovana</strong> e riuso delle <strong>acque grigie</strong> per irrigazione. Materiali locali e soluzioni a <strong>bassa manutenzione</strong> per ridurre il ciclo di vita economico e ambientale.<br><br>
+
+<strong>Valore</strong><br>
+VILLA F mette al centro <strong>le persone</strong> (benessere e qualità dell’abitare), il <strong>pianeta</strong> (riduzione di consumi ed emissioni) e il <strong>profitto</strong> (gestione efficiente delle risorse), offrendo una casa iconica ma misurata, radicata nel clima e nella cultura del luogo.`, 
     images: [
       "assets/images/projects/f/1.jpg",
       "assets/images/projects/f/2.jpg",
@@ -168,7 +186,18 @@ A ogni posto, una <strong>gru di carta</strong> portafortuna — le stesse che l
     title: "Wedding C+G", 
     meta: "Firenze · 2024",
     cats: ["grafica","wedding"], 
-    desc: "Save-the-date, invito e segnaposto su carta cotone.", 
+    desc:  `<strong>Firenze 2024 - Wedding Invitation e allestimento</strong>
+<strong>realizzato con Maddalena Timossi,
+in collaborazione per Ottagono.Design</strong>
+
+<strong>“NAPOLENZEWOOD”</strong><br><br>
+Due ragazzi, un <strong>fiorentino</strong> e un <strong>napoletano</strong>, si incontrano il <strong>29 febbraio 2020</strong>. Dopo la tempesta del Covid si spostano a Firenze e, quattro anni più tardi — ancora il <strong>29 febbraio 2024</strong> — si promettono per sempre. Non tutta la famiglia biologica approvava quelle nozze <strong>LGBTQ+</strong>, così hanno scelto di sposarsi con la loro <strong>famiglia elettiva</strong>: amici, parenti vicini e lontanissimi, le persone che hanno saputo dire “sì” prima di chiunque altro.<br><br>
+
+L’invito si apre su <strong>NAPOLENZEWOOD</strong>, una città immaginaria dove <strong>Napoli</strong> e <strong>Firenze</strong> si abbracciano: cupole e castelli, vicoli e lungarni che custodiscono i loro luoghi del cuore. Poi, come per magia, il <strong>pop-up</strong> porta in primo piano il loro nido: la casa, i vasi di fiori, la <strong>weimaraner</strong> e la <strong>gatta</strong>. E loro due in versione teneramente antropomorfa: il <strong>Riccio architetto</strong>, con in mano il progetto del futuro, e l’<strong>Orso pasticcere</strong>, intento a preparare la torta di nozze. Un invito che non informa soltanto: <strong>racconta</strong>, <strong>accoglie</strong>, <strong>commuove</strong>.<br><br>
+
+Le buste sono partite per il mondo intero, raggiungendo ogni membro di quella famiglia scelta. Nel giorno delle nozze, il <strong>tableau de mariage</strong> è diventato una NAPOLENZEWOOD in grande scala: dalle case spuntavano i posti a sedere, ognuna intitolata a <strong>figure e icone</strong> che hanno illuminato la cultura e la comunità LGBTQ+. La sala si è trasformata in città: ogni tavolo aveva la sua <strong>casa illustrata</strong> e, sul retro, un racconto dedicato al personaggio che le dava il nome.<br><br>
+
+A ogni posto, una <strong>cartolina</strong>: davanti la città immaginaria, dietro il <strong>menù</strong> narrato come <strong>capitoli del “Le Petit Prince”</strong> — il loro libro del cuore — con i nomi degli invitati <strong>scritti a mano</strong>, completi di indirizzo e città immaginari. Tutto, in questo progetto, è stato pensato per dire una sola cosa: <strong>l’amore trova sempre la sua forma</strong>. Unica, gentile, irripetibile. Come loro.`, 
     images: [
       "assets/images/projects/g/1.jpg",
       "assets/images/projects/g/2.jpg",
