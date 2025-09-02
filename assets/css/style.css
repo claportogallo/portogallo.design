@@ -81,7 +81,7 @@ body{
   padding: calc(var(--top-corridor) + 4vh) 6vw 12vh;
 }
 .gallery.ten{
-  --cols:5;
+  --cols:4;
   display:grid; gap:22px; width:min(1200px, 78vw);
   grid-template-columns: repeat(var(--cols), minmax(120px, 1fr));
 }
