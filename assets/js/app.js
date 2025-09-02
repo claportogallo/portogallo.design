@@ -75,10 +75,17 @@ const scrollDots = document.getElementById('scrollDots');
 const DOTS = 24;
 let currentDot = Math.floor(DOTS/2);
 function buildDots(){
+  if (!scrollDots) return;                // <— protezione
   scrollDots.innerHTML = '';
-  for (let i=0;i<DOTS;i++){ const li=document.createElement('li'); if(i===currentDot) li.classList.add('active'); scrollDots.appendChild(li); }
+  for (let i=0;i<DOTS;i++){
+    const li = document.createElement('li');
+    if (i === currentDot) li.classList.add('active');
+    scrollDots.appendChild(li);
+  }
 }
+
 function setDotByProgress(progress){
+  if (!scrollDots || !scrollDots.children.length) return; // <— protezione
   const idx = Math.max(0, Math.min(DOTS-1, Math.round(progress*(DOTS-1))));
   if (idx === currentDot) return;
   scrollDots.children[currentDot].classList.remove('active');
