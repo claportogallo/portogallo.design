@@ -68,12 +68,12 @@ body{
   position:fixed; right:-160px; bottom:24px; z-index:120;
   background:#000; color:#fff; text-decoration:none;
   display:flex; align-items:center;
-  height:48px; width:calc(var(--tab-length) + 60px);
+  height:48px; width:calc(var(--tab-length) + 160px);
   padding:0 16px;
   font-weight:900; text-transform:uppercase; letter-spacing:.5px;
 }
 .contact-tab span{ margin-left:6px; }
-.contact-tab:hover{ transform:translateX(-36px); }
+.contact-tab:hover{ transform:translateX(-24px); }
 
 /* Stage (home grid) */
 .stage{
