@@ -146,14 +146,14 @@ body{
 #sheetDesc { white-space: pre-line; }
 
 /* Meta */
-.project-sheet .sheet .sheet-meta{
+.sheet-meta{
   position: static;
   top: auto;
   max-height: none;
   overflow: visible;
 }
-.project-sheet .sheet .sheet-meta h2{ margin: 0 0 8px; }
-.project-sheet .sheet .sheet-meta p{ margin: 0; color: #555; }
+.sheet-meta h2{ margin:0 0 8px; } 
+.sheet-meta p{ margin:0; color:#555; }
 
 /* ===== Link nella descrizione: bordeaux + accessibilità ===== */
 #sheetDesc a{
