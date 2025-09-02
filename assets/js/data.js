@@ -17,7 +17,11 @@ senza la necessità di un cartello o di una spiegazione, il cliente deve sentirs
 
  Il progetto per il nuovo locale di Barroccino in via del Corso si può riassumere quindi in 3 parole:
  <strong>AUTENTICO, ARTIGIANALE, AMBIENTALE</strong>.
- L’esperienza che si vuole regalare al cliente, possa questo essere un turista distratto o un cittadino fiorentino, è quella di entrare in un luogo che c’è sempre stato.`,
+ L’esperienza che si vuole regalare al cliente, possa questo essere un turista distratto o un cittadino fiorentino, è quella di entrare in un luogo che c’è sempre stato.
+
+ <strong>Link<strong>:
+<a https://www.instagram.com/barroccinofirenze/a>`
+    ,
     
     images: ["assets/images/projects/a/1.jpg", "assets/images/projects/a/2.jpg", "assets/images/projects/a/3.jpg", "assets/images/projects/a/4.jpg", "assets/images/projects/a/5.jpg", "assets/images/projects/a/6.jpg", "assets/images/projects/a/7.jpg", "assets/images/projects/a/8.jpg"] 
   },
