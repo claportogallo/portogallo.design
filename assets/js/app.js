@@ -163,7 +163,7 @@ homeBtn.addEventListener('click', e => {
 // Open project
 function openProject(data){
   sheetTitle.textContent = data.title || 'Progetto';
-  sheetDesc.textContent  = data.desc || '';
+  sheetDesc.innerHTML    = data.desc || '';  // ← QUI la modifica
   sheetMedia.innerHTML = '';
 
   const imgs = Array.isArray(data.images) ? data.images : [];
