@@ -36,25 +36,33 @@ function revealGridStagger(){
 /* === A D D E D : overlay titolo/meta sulle card in hover ===
    - usa PROJECTS_KEYED per il titolo
    - legge luogo/data da data-meta sulla card (facoltativo) */
+
 function injectCardOverlays(){
   if (!gallery) return;
   const cards = gallery.querySelectorAll('.card');
+
   cards.forEach(card => {
-    if (card.querySelector('.mask')) return; // già creata
     const img = card.querySelector('img');
-    const key = (img?.getAttribute('alt') || '').toLowerCase(); // "a","b",...
-    const data = window.PROJECTS_KEYED ? window.PROJECTS_KEYED[key] : null;
-    const title = data?.title || '';
-    const meta = card.getAttribute('data-meta') || '';
-    const mask = document.createElement('div');
-    mask.className = 'mask';
+    if (!img) return;
+
+    const key = (img.getAttribute('alt') || '').toLowerCase();
+    const proj = window.PROJECTS_KEYED ? window.PROJECTS_KEYED[key] : null;
+    if (!proj) return;
+
+    let mask = card.querySelector('.mask');
+    if (!mask){
+      mask = document.createElement('div');
+      mask.className = 'mask';
+      card.appendChild(mask);
+    }
+
+    const meta = proj.meta || card.getAttribute('data-meta') || '';
     mask.innerHTML = `
       <div class="txt">
-        <div class="title">${title}</div>
+        <div class="title">${proj.title || ''}</div>
         ${meta ? `<div class="meta">${meta}</div>` : ``}
       </div>
     `;
-    card.appendChild(mask);
   });
 }
 
