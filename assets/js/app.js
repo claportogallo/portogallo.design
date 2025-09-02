@@ -223,7 +223,9 @@ closeOverlayBtn.addEventListener('click', closeProject);
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') stepBack(); });
 
 // backzones click
-[bzTop, bzLeft, bzRight].forEach(el => el.addEventListener('click', stepBack));
+[bzTop, bzLeft, bzRight].forEach(el => {
+  if (el) el.addEventListener('click', stepBack);
+});
 
 // cards -> project (robusto + delega eventi)
 gallery.addEventListener('click', (e) => {
