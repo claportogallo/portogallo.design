@@ -73,7 +73,7 @@ body{
   font-weight:900; text-transform:uppercase; letter-spacing:.5px;
 }
 .contact-tab span{ margin-left:6px; }
-.contact-tab:hover{ transform:translateX(-24px); }
+.contact-tab:hover{ transform:translateX(--40px); }
 
 /* Stage (home grid) */
 .stage{
