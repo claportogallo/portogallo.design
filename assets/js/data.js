@@ -19,9 +19,9 @@ senza la necessità di un cartello o di una spiegazione, il cliente deve sentirs
  <strong>AUTENTICO, ARTIGIANALE, AMBIENTALE</strong>.
  L’esperienza che si vuole regalare al cliente, possa questo essere un turista distratto o un cittadino fiorentino, è quella di entrare in un luogo che c’è sempre stato.
 
- <strong>Link<strong>:
-target="_blank" rel="noopener noreferrer"https://www.instagram.com/barroccinofirenze/a>
-target="_blank" rel="noopener noreferrer" https://gelateriabarroccino.it/a>`
+ Link:
+<a href="https://www.instagram.com/barroccinofirenze/" target="_blank" rel="noopener noreferrer">Instagram</a> ·
+<a href="https://gelateriabarroccino.it/" target="_blank" rel="noopener noreferrer">Sito ufficiale</a>
     ,
     
     images: ["assets/images/projects/a/1.jpg", "assets/images/projects/a/2.jpg", "assets/images/projects/a/3.jpg", "assets/images/projects/a/4.jpg", "assets/images/projects/a/5.jpg", "assets/images/projects/a/6.jpg", "assets/images/projects/a/7.jpg", "assets/images/projects/a/8.jpg"] 
