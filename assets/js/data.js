@@ -3,38 +3,22 @@ window.PROJECTS = {
     title: "Gelateria Firenze", 
     desc: `<strong>Firenze 2024 - Progettazione nuova gelateria</strong>
 
-Il concept per il nuovo locale di Barroccino in via del Corso
-ha alla base la volontà di unire elementi caratterizzanti
-dell’architettura e stile fiorentino con i suoi materiali e forme.
-Ciò che contraddistingue Firenze e che porta anche Barroccino
-nel suo spirito è l’<strong>artigianalità</strong>.
+Il concept per il nuovo locale di Barroccino in via del Corso ha alla base la volontà di unire elementi caratterizzanti dell’architettura e stile fiorentino con i suoi materiali e forme.
+Ciò che contraddistingue Firenze e che porta anche Barroccino nel suo spirito è l’<strong>artigianalità</strong>.
 
-Se i prodotti e le materie prime per la realizzazione del gelato
-e dei dolci sono tutti naturali e provengono da una filiera
-corta e controllata, anche i materiali e i prodotti di cui è fatto
-il locale dovrebbero essere artigianali e realizzati con materiali
-del luogo e/o tipici delle realizzazioni a Firenze.
+Se i prodotti e le materie prime per la realizzazione del gelato e dei dolci sono tutti naturali e provengono da una filiera corta e controllata, anche i materiali e i prodotti di cui è fatto il locale dovrebbero essere artigianali e realizzati con materiali del luogo e/o tipici delle realizzazioni a Firenze.
 
-L’arte e la storia della città non possono meglio che esprimersi
-con mobili fatti a mano da artigiani locali con materie prime
-naturali e tradizionali.
+L’arte e la storia della città non possono meglio che esprimersi con mobili fatti a mano da artigiani locali con materie prime naturali e tradizionali.
 
-In questo modo è possibile ottenere un luogo attento ai bisogni
-dell’ecosistema e realizzare un’architettura <strong>ambientale</strong> e
-<strong>sostenibile</strong>.
+In questo modo è possibile ottenere un luogo attento ai bisogni dell’ecosistema e realizzare un’architettura <strong>ambientale</strong> e <strong>sostenibile</strong>.
 
 Tutto questo si traduce in un luogo che deve parlare da solo:
-senza la necessità di un cartello o di una spiegazione, il cliente
-deve sentirsi in un autentico negozio fiorentino, dove assapora
-con gli occhi, gli odori e con il palato il gusto e il sapore di ciò
-che si vende all’interno: un’esperienza di piacere.
+senza la necessità di un cartello o di una spiegazione, il cliente deve sentirsi in un autentico negozio fiorentino, dove assapora con gli occhi, gli odori e con il palato il gusto e il sapore di ciò che si vende all’interno: un’esperienza di piacere.
 
- Il progetto per il nuovo locale di Barroccino in via del Corso si 
-può riassumere quindi in 3 parole:
+ Il progetto per il nuovo locale di Barroccino in via del Corso si può riassumere quindi in 3 parole:
  <strong>AUTENTICO, ARTIGIANALE, AMBIENTALE</strong>.
- L’esperienza che si vuole regalare al cliente, possa questo 
-essere un turista distratto o un cittadino fiorentino, 
-è quella di entrare in un luogo che c’è sempre stato.`,
+ L’esperienza che si vuole regalare al cliente, possa questo essere un turista distratto o un cittadino fiorentino, è quella di entrare in un luogo che c’è sempre stato.`,
+    
     images: ["assets/images/projects/a/1.jpg", "assets/images/projects/a/2.jpg", "assets/images/projects/a/3.jpg", "assets/images/projects/a/4.jpg", "assets/images/projects/a/5.jpg", "assets/images/projects/a/6.jpg", "assets/images/projects/a/7.jpg", "assets/images/projects/a/8.jpg"] 
   },
   
