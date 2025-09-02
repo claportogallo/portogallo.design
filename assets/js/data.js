@@ -67,7 +67,29 @@ Link:
     title: "Home* Project", 
     meta: "Milano · 2018",
     cats: ["bimai","architettura"], 
-    desc: "Coordinamento BIM, modelli federati e tavole automatiche.", 
+    desc: `<strong>Milano 2018 - Progetto di tesi magistrale Politecnico</strong>
+<strong>realizzato e pubblicato con Tecla Caroli</strong>
+
+<strong>HOME*</strong> è un sistema abitativo modulare per contesti di emergenza, nato da uno studio internazionale sulle migliori pratiche. L’obiettivo è offrire una soluzione <strong>rapida</strong>, <strong>efficiente</strong> ed <strong>evolutiva</strong>, capace di rispondere subito ai bisogni umanitari e di crescere nel tempo.<br><br>
+
+Il progetto integra <strong>BIM</strong> e <strong>Life Cycle Assessment (LCA)</strong> in un unico modello informativo completo di dati tecnici, fisici ed economici. Il <strong>BIM</strong> consente il controllo delle scelte a livello di <strong>materiale</strong>, <strong>componente</strong> e <strong>sistema</strong>, la standardizzazione in <strong>famiglie</strong> sostituibili/integrabili e l’estrazione immediata di computi e stime. L’<strong>LCA</strong> misura gli impatti lungo il ciclo di vita — energia, costi ed <strong>emissioni di CO₂</strong> — dai materiali alla logistica fino alla fase d’uso.<br><br>
+
+<strong>Adattabilità geografica.</strong> Per validarne le prestazioni ambientali, economiche ed energetiche, <strong>HOME*</strong> è stato testato in due scenari opposti: <strong>Amatrice (Italia)</strong> e <strong>Zaatari (Giordania)</strong>.<br><br>
+
+<strong>Tecnologie e fasi.</strong> Il sistema opera in <strong>due fasi</strong>:<br>
+<strong>Fase 1</strong> — modulo base per <strong>2 persone</strong>, più sicuro di una tenda, <strong>rapidamente montabile/smontabile</strong> e riutilizzabile in configurazioni diverse.<br>
+<strong>Fase 2</strong> — crescita in un organismo abitativo più complesso tramite <strong>assemblaggio a secco</strong> (reversibile e flessibile, ispirato alla ferramenta del mobile) con componenti <strong>standard</strong>, facilmente reperibili e ottimizzati per trasporto, resistenza meccanica e comfort termo-igrometrico.<br><br>
+
+<strong>Prestazioni ed energia.</strong> L’interoperabilità del modello permette simulazioni con <strong>Termolog</strong> e <strong>CENED+2.0</strong>. La forma compatta e l’involucro ad alte prestazioni riducono i fabbisogni; il sistema può essere reso <strong>energeticamente autosufficiente</strong>. <strong>Vita utile prevista: 30 anni</strong>, estendibile grazie alla riconfigurabilità.<br><br>
+
+<strong>Economia del progetto.</strong> I dati di costo a livello di componente abilitano computi affidabili e strategie di procurement. A <strong>costi vicini</strong> a quelli di una struttura transizionale, <strong>HOME*</strong> offre una soluzione <strong>più durevole</strong>, <strong>adattabile</strong> e <strong>scalabile</strong>, riducendo sprechi di materiali ed energia.<br><br>
+
+In sintesi, <strong>HOME*</strong> unisce <strong>rapidità d’intervento</strong>, <strong>sostenibilità ambientale ed economica</strong> e <strong>dignità dell’abitare</strong>, mettendo al centro le persone e il loro futuro.
+
+Link:
+<a href="https://www.politesi.polimi.it/handle/10589/141128" target="_blank" rel="noopener noreferrer">Tesi Magistrale Politecnico di Milano</a>
+<a href="https://issuu.com/edicomedizioni/docs/la34" target="_blank" rel="noopener noreferrer">Pubblicazione su LegnoArchitettura n.34 2018</a>
+<a href="https://issuu.com/redazioneioarch/docs/issuu_ioa76" target="_blank" rel="noopener noreferrer">Pubblicazione su IoArch n.76 2018</a>`, 
     images: [
       "assets/images/projects/c/1.jpg",
       "assets/images/projects/c/2.jpg",
