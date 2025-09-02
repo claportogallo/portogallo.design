@@ -174,6 +174,16 @@ function filterCards(cat){
   revealGridStagger();
 }
 
+function stepBack(){
+  if (MODE === 'project'){ setMode('section'); return; }
+  if (MODE === 'contact'){ 
+    if (LAST_SECTION){ setMode('section'); } 
+    else { setMode('home'); } 
+    return; 
+  }
+  if (MODE === 'section'){ setMode('home'); return; }
+}
+
 // Tabs
 tabs.forEach(t => t.addEventListener('click', () => {
   const cat = t.dataset.filter;
