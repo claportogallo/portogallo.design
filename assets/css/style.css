@@ -146,14 +146,31 @@ body{
 #sheetDesc { white-space: pre-line; }
 
 /* Meta */
-.sheet-meta{
-  position: static !important;
-  top: auto !important;
-  max-height: none !important;
-  overflow: visible !important;
+.project-sheet .sheet .sheet-meta{
+  position: static;
+  top: auto;
+  max-height: none;
+  overflow: visible;
 }
-.sheet-meta h2{ margin:0 0 8px; }
-.sheet-meta p{ margin:0; color:#555; }
+.project-sheet .sheet .sheet-meta h2{ margin: 0 0 8px; }
+.project-sheet .sheet .sheet-meta p{ margin: 0; color: #555; }
+
+/* ===== Link nella descrizione: bordeaux + accessibilità ===== */
+#sheetDesc a{
+  color: #800020;                  /* rosso bordeaux */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+#sheetDesc a:hover{
+  color: #a51e34;                  /* bordeaux più chiaro al hover */
+}
+#sheetDesc a:visited{
+  color: #6a001a;                  /* tono più scuro per visited */
+}
+#sheetDesc a:focus-visible{
+  outline: 2px solid #a51e34;      /* focus per tastiera */
+  outline-offset: 2px;
+}
 
 /* Dot scrollbar */
 .scroll-dots{
