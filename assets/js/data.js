@@ -1,6 +1,6 @@
 window.PROJECTS = {
   "Gelateria Firenze": {
-    title: "Progetto Gelateria Barroccino - Via del Corso", 
+    title: "Gelateria Firenze", 
     desc: `Il concept per il nuovo locale di Barroccino in via del Corso
 ha alla base la volontà di unire elementi caratterizzanti
 dell’architettura e stile fiorentino con i suoi materiali e forme.
