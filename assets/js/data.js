@@ -1,11 +1,13 @@
 window.PROJECTS = {
   "Gelateria Firenze": {
     title: "Gelateria Firenze", 
-    desc: `Il concept per il nuovo locale di Barroccino in via del Corso
+    desc: `<strong>Firenze 2024 - Progettazione nuova gelateria</strong>
+
+Il concept per il nuovo locale di Barroccino in via del Corso
 ha alla base la volontà di unire elementi caratterizzanti
 dell’architettura e stile fiorentino con i suoi materiali e forme.
 Ciò che contraddistingue Firenze e che porta anche Barroccino
-nel suo spirito è l’artigianalità.
+nel suo spirito è l’<strong>artigianalità</strong>.
 
 Se i prodotti e le materie prime per la realizzazione del gelato
 e dei dolci sono tutti naturali e provengono da una filiera
@@ -18,8 +20,8 @@ con mobili fatti a mano da artigiani locali con materie prime
 naturali e tradizionali.
 
 In questo modo è possibile ottenere un luogo attento ai bisogni
-dell’ecosistema e realizzare un’architettura ambientale e
-sostenibile.
+dell’ecosistema e realizzare un’architettura <strong>ambientale</strong> e
+<strong>sostenibile</strong>.
 
 Tutto questo si traduce in un luogo che deve parlare da solo:
 senza la necessità di un cartello o di una spiegazione, il cliente
@@ -29,7 +31,7 @@ che si vende all’interno: un’esperienza di piacere.
 
  Il progetto per il nuovo locale di Barroccino in via del Corso si 
 può riassumere quindi in 3 parole:
- AUTENTICO, ARTIGIANALE, AMBIENTALE.
+ <strong>AUTENTICO, ARTIGIANALE, AMBIENTALE</strong>.
  L’esperienza che si vuole regalare al cliente, possa questo 
 essere un turista distratto o un cittadino fiorentino, 
 è quella di entrare in un luogo che c’è sempre stato.`,
