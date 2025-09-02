@@ -66,7 +66,7 @@ Link:
   "Home* Project": { 
     title: "Home* Project", 
     meta: "Milano · 2018",
-    cats: ["bimai" "architettura"], 
+    cats: ["bimai","architettura"], 
     desc: "Coordinamento BIM, modelli federati e tavole automatiche.", 
     images: [
       "assets/images/projects/c/1.jpg",
@@ -97,7 +97,7 @@ Link:
   "Wedding M+S": { 
     title: "Wedding M+S",
     meta: "Firenze · 2024",
-    cats: ["grafica" "wedding"], 
+    cats: ["grafica","wedding"], 
     desc: "Poster tipografico, stampa Riso.", 
     images: [
       "assets/images/projects/e/1.jpg",
@@ -111,7 +111,7 @@ Link:
   "Concept Villa Dubai": { 
     title: "Concept Villa Dubai", 
     meta: "Milano · 2023",
-    cats: ["architettura", "bimai"], 
+    cats: ["architettura","bimai"], 
     desc: "Layout negozio e brand in coerenza con materiali.", 
     images: [
       "assets/images/projects/f/1.jpg",
@@ -125,7 +125,7 @@ Link:
   "Wedding C+G": { 
     title: "Wedding C+G", 
     meta: "Firenze · 2024",
-    cats: ["grafica" "wedding"], 
+    cats: ["grafica","wedding"], 
     desc: "Save-the-date, invito e segnaposto su carta cotone.", 
     images: [
       "assets/images/projects/g/1.jpg",
