@@ -123,9 +123,24 @@ In tavola funziona come <strong>totem domestico</strong> — scultoreo anche a v
 
   "Wedding M+S": { 
     title: "Wedding M+S",
-    meta: "Firenze · 2024",
+    meta: "Amsterdam · 2024",
     cats: ["grafica","wedding"], 
-    desc: "Poster tipografico, stampa Riso.", 
+    desc:  `<strong>Amsterdam 2024 - Wedding Invitation e allestimento</strong>
+
+<strong>Invito di matrimonio — “Amsterdam, una storia in tre atti”</strong><br><br>
+I <strong>futuri sposi</strong> desideravano che l’invito non fosse solo un cartoncino con data e indirizzo, ma un <strong>ricordo da conservare</strong>: un frammento della loro storia capace di emozionare chi lo riceve. Davanti a un caffè mi hanno raccontato di <strong>Amsterdam</strong>, della loro prima casa, dei <strong>due cani</strong> che li seguono ovunque, delle ore in cucina — lui ai fornelli, lei con lo zucchero a velo sulle mani. Da quel racconto è nato un invito che è insieme <strong>illustrazione</strong>, <strong>memoria</strong> e <strong>promessa</strong>.<br><br>
+
+La scena è la <strong>facciata della loro casa olandese</strong>, disegnata nel blu intenso che richiama la <strong>ceramica di Delft</strong>. L’illustrazione si legge come un racconto in <strong>tre atti</strong>.<br><br>
+
+<strong>Atto I</strong> — Il nastro annuncia il matrimonio, come una tenda che si apre a teatro.<br>
+<strong>Atto II</strong> — Lei si affaccia alla finestra e piega <strong>origami</strong>, immaginando il futuro; lui, nella finestra sotto, <strong>spadella</strong> con il sorriso. Nei dettagli compaiono i loro cani e piccoli indizi della vita condivisa.<br>
+<strong>Atto III</strong> — La strada si anima e i due partono in <strong>bicicletta</strong> verso il <strong>viaggio di nozze</strong>: leggeri, complici, già proiettati avanti.<br><br>
+
+L’invito arriva in una <strong>busta decorata</strong> dentro e fuori, chiusa da <strong>ceralacca blu</strong> e <strong>timbro personalizzato</strong>: un gesto tattile, quasi una carezza. Il racconto prosegue nel giorno delle nozze con il <strong>tableau de mariage</strong> coordinato e con i tavoli dedicati ai <strong>luoghi del cuore</strong> di Amsterdam (cinque in totale).<br><br>
+
+A ogni posto, una <strong>gru di carta</strong> portafortuna — le stesse che lei piegava quando lo ha incontrato — e una <strong>cartolina “spedita da Amsterdam”</strong>: sul fronte una tra <strong>10 illustrazioni originali</strong> distribuite a caso, sul retro <strong>francobolli</strong> e <strong>menù della cena</strong> al posto del testo.<br><br>
+
+<strong>Risultato</strong> — Un sistema delicato e coerente che unisce <strong>racconto personale</strong> e <strong>cura artigianale</strong>, trasformando invito e allestimento in un’esperienza da <strong>sfogliare</strong>, <strong>toccare</strong> e <strong>custodire</strong>.`, 
     images: [
       "assets/images/projects/e/1.jpg",
       "assets/images/projects/e/2.jpg",
