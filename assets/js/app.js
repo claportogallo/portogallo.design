@@ -161,20 +161,20 @@ homeBtn.addEventListener('click', e => {
 });
 
 // Open project
-function openProject(data){
-  sheetTitle.textContent = data.title || 'Progetto';
-  sheetDesc.innerHTML    = data.desc || '';  // ← QUI la modifica
-  sheetMedia.innerHTML = '';
+function openProject(project){
+  if (!project) return;
 
-  const imgs = Array.isArray(data.images) ? data.images : [];
+  sheetTitle.textContent = project.title || 'Progetto';
+  sheetDesc.innerHTML    = project.desc || '';   // <-- HTML abilitato
+  sheetMedia.innerHTML   = '';
+
+  const imgs = Array.isArray(project.images) ? project.images : [];
   imgs.forEach(src => {
     const im = new Image();
-    im.loading = 'eager';          // evita lazy e glitch su iOS
+    im.loading = 'eager';
     im.decoding = 'async';
     im.src = src;
-    im.addEventListener('load', () => {
-      im.classList.add('is-ready'); // ora può mostrare bordo + opacità
-    });
+    im.addEventListener('load', () => im.classList.add('is-ready'));
     sheetMedia.appendChild(im);
   });
 
@@ -189,15 +189,21 @@ document.addEventListener('keydown', e=>{ if(e.key==='Escape') stepBack(); });
 // backzones click
 [bzTop, bzLeft, bzRight].forEach(el => el.addEventListener('click', stepBack));
 
-// cards -> project
-gallery.querySelectorAll('.card').forEach(card => {
+// cards -> project (robusto + delega eventi)
+gallery.addEventListener('click', (e) => {
+  const card = e.target.closest('.card');
+  if (!card || !gallery.contains(card)) return;
+
   const img = card.querySelector('img');
-  card.addEventListener('click', ()=>{
-    const alt = img.getAttribute('alt');
-    const key = alt.toLowerCase();
-    const data = window.PROJECTS_KEYED[key] || {};
-    openProject(data);
-  });
+  // usa alt (es. "a","b",...) o, se presente, data-key sulla card
+  const key = ((img && img.getAttribute('alt')) || card.dataset.key || '').toLowerCase();
+  const data = (window.PROJECTS_KEYED && window.PROJECTS_KEYED[key]) || null;
+
+  if (!data) {
+    console.warn('Project non trovato per key:', key);
+    return;
+  }
+  openProject(data);
 });
 
 // dot scrollbar on inner scroller
