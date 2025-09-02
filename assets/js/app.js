@@ -119,23 +119,44 @@ function setMode(newMode){
 function hideOverlay(){ overlay.classList.add('hidden'); overlay.setAttribute('aria-hidden','true'); }
 
 function filterCards(cat){
+  const wanted = (cat || '').toLowerCase();
   const cards = gallery.querySelectorAll('.card');
+
   cards.forEach(card => {
-    if (!cat){ card.classList.remove('hide'); card.style.display=''; card.classList.add('show'); setTimeout(()=>card.classList.remove('show'),260); }
-    else { const cats=(card.dataset.cats||'').split(' '); const visible=cats.includes(cat);
-      if (visible){ card.classList.remove('hide'); card.style.display=''; card.classList.add('show'); setTimeout(()=>card.classList.remove('show'),260); }
-      else { card.classList.add('hide'); setTimeout(()=>{ card.style.display='none'; },200); }
+    // key dalla <img alt="a|b|c...">
+    const img = card.querySelector('img');
+    const key = (img?.getAttribute('alt') || '').toLowerCase();
+
+    // progetto dalla mappa keyed
+    const proj = window.PROJECTS_KEYED ? window.PROJECTS_KEYED[key] : null;
+
+    // 1) categorie dal data.js
+    let cats = Array.isArray(proj?.cats)
+      ? proj.cats.map(c => String(c).toLowerCase())
+      : null;
+
+    // 2) fallback: data-cats sull’HTML (spazio-separato)
+    if (!cats || cats.length === 0) {
+      const raw = card.getAttribute('data-cats') || '';
+      cats = raw.split(/\s+/).filter(Boolean).map(c => c.toLowerCase());
+    }
+
+    const visible = !wanted || cats.includes(wanted);
+
+    if (visible){
+      card.classList.remove('hide');
+      card.style.display = '';
+      card.classList.add('show');
+      setTimeout(() => card.classList.remove('show'), 260);
+    } else {
+      card.classList.add('hide');
+      setTimeout(() => { card.style.display = 'none'; }, 200);
     }
   });
-  // dopo ogni filtraggio: assicura overlay presenti e rivelazione a cascata
+
+  // dopo ogni filtraggio
   injectCardOverlays();
   revealGridStagger();
-}
-
-function stepBack(){
-  if (MODE === 'project'){ setMode('section'); return; }
-  if (MODE === 'contact'){ if (LAST_SECTION){ setMode('section'); } else { setMode('home'); } return; }
-  if (MODE === 'section'){ setMode('home'); return; }
 }
 
 // Tabs
