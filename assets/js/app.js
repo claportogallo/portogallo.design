@@ -25,8 +25,8 @@ function endPreloader(){
 
 // Rivela le card visibili con uno "stagger"
 function revealGridStagger(){
-  const cards = Array.from(gallery.querySelectorAll('.card'))
-    .filter(c => c.style.display !== 'none');
+const cards = Array.from(gallery.querySelectorAll('.card'))
+  .filter(c => getComputedStyle(c).display !== 'none');
   cards.forEach((c,i) => {
     c.classList.remove('is-in');
     setTimeout(()=> { c.classList.add('is-in'); }, 40 + i*70);
