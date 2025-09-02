@@ -88,8 +88,8 @@ body{
 @media (max-width:1100px){ .gallery.ten{ --cols:4; width:84vw; } }
 @media (max-width:820px){  .gallery.ten{ --cols:2; width:90vw; } }
 
-/* HOME: mostra solo le prime 8 card (9a in poi nascoste) */
-body.mode-home #gallery .card:nth-child(n+9){
+/* BLOCCO PERMANENTE: nascondi SEMPRE dalla 9a card in poi */
+#gallery .card:nth-child(n+9){
   display: none !important;
 }
 
