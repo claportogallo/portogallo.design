@@ -20,7 +20,7 @@ Il progetto per il nuovo locale di Barroccino in via del Corso si può riassumer
 L’esperienza che si vuole regalare al cliente, possa questo essere un turista distratto o un cittadino fiorentino, è quella di entrare in un luogo che c’è sempre stato.
 
 Link:
-<a href="https://www.instagram.com/barroccinofirenze/" target="_blank" rel="noopener noreferrer">Instagram</a> ·
+<a href="https://www.instagram.com/barroccinofirenze/" target="_blank" rel="noopener noreferrer">Instagram</a>
 <a href="https://gelateriabarroccino.it/" target="_blank" rel="noopener noreferrer">Sito ufficiale</a>`,
     images: [
       "assets/images/projects/a/1.jpg",
@@ -36,7 +36,19 @@ Link:
 
   "New Brand David": { 
     title: "New Brand David", 
-    desc: "Coordinato grafico matrimonio: invito, menu, segnaposto.", 
+    desc: `<strong>Firenze 2023 - Brand identity e sistema illustrativo</strong>
+
+Cliente internazionale con un nuovo fondo nel centro storico di Firenze: l’obiettivo era creare un marchio iconico, subito riconoscibile e profondamente legato alla città. Il cliente ha scelto il David di Michelangelo come emblema; da questo input ho sviluppato un’illustrazione originale in stile lineare: il David sostituisce la fionda con un cono gelato e strizza l’occhio al pubblico, fondendo ironia e classicità.
+
+La tipografia accosta un serif autorevole per “DAVID” a un corsivo più leggero per “La Gelateria”, a bilanciare heritage e convivialità. La palette riprende gli interni: rosa polverosi e sfumature calde che tornano su insegna, materiali stampati e contenuti digitali, creando continuità visiva in/outdoor.
+
+Ho progettato l’intero sistema illustrativo: etichette gusti, menù, listini, cartellonistica, supporti per i monitor e micro-icone. Tutti gli elementi riprendono il tratto a china del logo, così da costruire una linea stilistica unica e riconoscibile.
+
+<strong>Deliverable principali</strong>: logo e insegna, palette e linee guida tipografiche, illustrazioni per menù e bacheca gusti, grafiche per monitor, biglietti e materiali di comunicazione.
+<strong>Risultato</strong>: un’identità coerente, elegante e giocosa che rende il locale immediatamente memorabile per residenti e turisti.
+
+Link:
+<a href="https://www.google.com/maps/place/David+la+Gelateria/@43.7715218,11.2588435,681m/data=!3m2!1e3!4b1!4m6!3m5!1s0x132a5521bb1ebd35:0x5dea0a3702f2252a!8m2!3d43.771518!4d11.2614184!16s%2Fg%2F11l5b7bgg8?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Google Maps Page</a>`, 
     images: [
       "assets/images/projects/b/1.jpg",
       "assets/images/projects/b/2.jpg",
