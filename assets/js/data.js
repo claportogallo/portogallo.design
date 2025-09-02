@@ -87,9 +87,9 @@ Il progetto integra <strong>BIM</strong> e <strong>Life Cycle Assessment (LCA)</
 In sintesi, <strong>HOME*</strong> unisce <strong>rapidità d’intervento</strong>, <strong>sostenibilità ambientale ed economica</strong> e <strong>dignità dell’abitare</strong>, mettendo al centro le persone e il loro futuro.
 
 Link:
-<a href="https://www.politesi.polimi.it/handle/10589/141128" target="_blank" rel="noopener noreferrer">Tesi Magistrale Politecnico di Milano</a>
-<a href="https://issuu.com/edicomedizioni/docs/la34" target="_blank" rel="noopener noreferrer">Pubblicazione su LegnoArchitettura n.34 2018</a>
-<a href="https://issuu.com/redazioneioarch/docs/issuu_ioa76" target="_blank" rel="noopener noreferrer">Pubblicazione su IoArch n.76 2018</a>`, 
+<a href="https://www.politesi.polimi.it/handle/10589/141128" target="_blank" rel="noopener noreferrer">Politecnico di Milano</a>
+<a href="https://issuu.com/edicomedizioni/docs/la34" target="_blank" rel="noopener noreferrer">LegnoArchitettura n.34 2018</a>
+<a href="https://issuu.com/redazioneioarch/docs/issuu_ioa76" target="_blank" rel="noopener noreferrer">IoArch n.76 2018</a>`, 
     images: [
       "assets/images/projects/c/1.jpg",
       "assets/images/projects/c/2.jpg",
@@ -104,9 +104,14 @@ Link:
 
   "Vaso C.": { 
     title: "Vaso C.", 
-    meta: "Firenze · 2025",
+    meta: "Napoli · 2025",
     cats: ["artigianato"], 
-    desc: "Ceramica — gres smaltato, pezzo unico.", 
+    desc: `<strong>Napoli 2025 - Terracotta smaltata</strong>
+
+Progetto su commissione per un cliente che desiderava un oggetto a doppia funzione: <strong>scultura da centrotavola</strong> e <strong>vaso</strong> utilizzabile all’occorrenza. Ho scelto il <strong>carciofo</strong> per la sua forza iconica e per la struttura naturale: la testa garantisce una base stabile mentre il <strong>gambo verticale</strong> diventa collo del vaso, capace di guidare e sostenere il bouquet.<br><br>
+Il volume è <strong>modellato a mano</strong>, con brattee applicate una a una e texture incise per restituire il carattere vegetale. L’interno è continuo e <strong>impermeabilizzato</strong> per contenere l’acqua; all’esterno una stratificazione di ingobbi e <strong>smalti lucidi</strong> crea le variazioni verde-violacee tipiche del carciofo.<br><br>
+La composizione è studiata per l’<strong>equilibrio</strong>: il piccolo ricciolo del gambo lavora da contro-peso e dà movimento al profilo. Il pezzo è rifinito con <strong>doppia cottura</strong> per resistenza e brillantezza.<br><br>
+In tavola funziona come <strong>totem domestico</strong> — scultoreo anche a vaso vuoto — e, quando serve, accoglie fiori freschi o secchi grazie al collo stretto e al corpo capiente. Un oggetto unico che unisce <strong>botanica, funzione e decorazione</strong> in un gesto contemporaneo.`, 
     images: [
       "assets/images/projects/d/1.jpg",
       "assets/images/projects/d/2.jpg",
