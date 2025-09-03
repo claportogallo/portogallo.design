@@ -216,6 +216,43 @@ body{
 .project-sheet .sheet .sheet-meta h2{ margin:0 0 8px; }
 .project-sheet .sheet .sheet-meta p{ margin:0; color:#555; }
 
+/* ===== Layout “inline text” per i progetti con inlineText: true ===== */
+.project-sheet.inline .sheet{
+  grid-template-columns: 1fr;     /* una sola colonna */
+}
+
+/* nascondi interamente il pannello laterale */
+.project-sheet.inline .sheet .sheet-meta{
+  display: none !important;
+}
+
+/* contenitore media + testi centrato, stessa larghezza max di prima */
+.project-sheet.inline .sheet .sheet-media{
+  width: min(1200px, 86vw);
+  margin: 0 auto;
+}
+
+/* blocco testo tra le immagini */
+.sheet-media .img-text{
+  margin: 16px 0 20px;
+  line-height: 1.5;
+  color: #333;
+  white-space: pre-line;           /* rispetta gli a capo nel testo */
+}
+
+/* link dentro ai blocchi testo (riusa il tuo bordeaux) */
+.sheet-media .img-text a{
+  color: #800020;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.sheet-media .img-text a:hover{ color:#a51e34; }
+.sheet-media .img-text a:visited{ color:#6a001a; }
+.sheet-media .img-text a:focus-visible{
+  outline: 2px solid #a51e34;
+  outline-offset: 2px;
+}
+
 /* ===== Link nella descrizione: bordeaux + accessibilità ===== */
 #sheetDesc a{
   color: #800020;                  /* rosso bordeaux */
