@@ -239,10 +239,27 @@ A ogni posto, una <strong>cartolina</strong>: davanti la città immaginaria, die
 
   // un elemento per OGNI immagine (opzionale): se la stringa è vuota, nessun testo e le foto restano attaccate
   texts: [
-    `Ciao! Sono <strong>architetto e designer</strong>. Mi occupo di spazi, identità visive e processi BIM con base a Firenze.`,
-    `Dal 2016 progetto e coordino attività tra <em>architettura</em> e <em>grafica</em>, con attenzione a processi, materiali e dettaglio.`,
+    `<strong>Architetto con mani d’artigiano</strong>: tra <strong>BIM</strong> e <strong>bottega</strong> progetto spazi, identità e oggetti.<br>
+Mi muovo tra cantiere e atelier: tecnica, illustrazione e materia per dare forma a storie nuove.<br><br>
+<strong>Mi chiamo Claudio Portogallo</strong>. Progetto con la testa e con le mani.<br>
+Sono <strong>architetto</strong>, <strong>designer</strong> e <strong>artigiano</strong>: mi occupo di progettazione e sono <strong>BIM Coordinator</strong> con lo studio internazionale <strong>Archea Associati</strong> di Firenze; in parallelo seguo lavori indipendenti di architettura e di interni.<br>
+Nell’atelier <strong>Ottagono.Artspace</strong> sperimento con <strong>ceramica</strong>, <strong>legno</strong>, <strong>carta</strong> e <strong>illustrazione</strong>: qui la materia mi rimette a terra e la fantasia mi spinge a sperimentare con grande libertà.<br>
+Amo l’arte e lavoro anche con l’<strong>intelligenza artificiale</strong>, che uso ogni giorno come taccuino di ricerca visiva e come spinta per uscire dai binari dell’ordinario.<br>
+Non amo definirmi “artista”: preferisco costruire, pezzo dopo pezzo, immagini e spazi che parlano chiaro, rispettano <strong>tempi e budget</strong> e — soprattutto — fanno stare bene chi li abita.<br><br>`,
+    `<strong>Cosa faccio</strong><br>
+• <strong>Architettura & Interni</strong> — grandi edifici, abitazioni, retail, hospitality; concept, dettaglio e cantiere.<br>
+• <strong>Design su misura</strong> — arredi e oggetti unici, prototipazione rapida.<br>
+• <strong>Grafica & Illustrazione</strong> — biglietti e inviti che raccontano storie, identità di luoghi, sistemi illustrati.<br>
+• <strong>BIM</strong> — modellazione, coordinamento, standard, qualità.<br><br>
+<strong>Metodo</strong><br>
+<strong>Ascolto</strong> → <strong>Idea condivisa</strong> → <strong>Prototipo/Mockup</strong> → <strong>Consegna curata nel dettaglio</strong><br>
+<strong>Valori</strong>: chiarezza • rispetto di tempi e budget • artigianalità<br><br>
+<strong>Collaborazioni & Strumenti</strong><br>
+<strong>Archea Associati</strong> (BIM Coordinator, Architetto Progettista).<br>
+<strong>Ottagono.Artspace</strong> (atelier).<br>
+<strong>Revit/BIM</strong>, suite grafica, ceramica/legno/carta, <strong>AI</strong>.<br><br>`,
     ``,
-    ``,
+    `<strong>Hai un’idea?</strong> Parliamone: la disegniamo, la testiamo, la realizziamo.`,
     ``
   ]
 },
