@@ -255,8 +255,8 @@ Non amo definirmi “artista”: preferisco costruire, pezzo dopo pezzo, immagin
 <strong>Ascolto</strong> → <strong>Idea condivisa</strong> → <strong>Prototipo/Mockup</strong> → <strong>Consegna curata nel dettaglio</strong><br>
 <strong>Valori</strong>: chiarezza • rispetto di tempi e budget • artigianalità<br><br>
 <strong>Collaborazioni & Strumenti</strong><br>
-<strong>Archea Associati</strong> (BIM Coordinator, Architetto Progettista).<br>
-<strong>Ottagono.Artspace</strong> (atelier).<br>
+<strong>Archea Associati</strong> (BIM Coordinator, Architetto Progettista).
+<strong>Ottagono.Artspace</strong> (atelier).
 <strong>Revit/BIM</strong>, suite grafica, ceramica/legno/carta, <strong>AI</strong>.<br><br>`,
     ``,
     `<strong>Hai un’idea?</strong> Parliamone: la disegniamo, la testiamo, la realizziamo.`,
