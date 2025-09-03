@@ -69,9 +69,9 @@ body{
   background:#000; color:#fff; text-decoration:none;
   display:flex; align-items:center;
 
-  /* ↓↓↓ PIÙ STRETTO? abbassa questi tre valori ↓↓↓ */
+  /* ↓↓↓ dimensioni ↓↓↓ */
   height:40px;
-  width:calc(var(--tab-length) + 150px);
+  width:calc(var(--tab-length) + 180px);
   padding:0 12px;
 
   font-weight:900; text-transform:uppercase; letter-spacing:.5px;
