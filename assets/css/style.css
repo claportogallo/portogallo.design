@@ -316,7 +316,7 @@ header.topbar .logo-img{ height: var(--logo-site); }
 
     /* Offset logo e griglia home */
     --logo-mobile-offset: 15px;
-    --home-mobile-shift: 80px;  /* +50px in basso la griglia della HOME */
+    --home-mobile-shift: 180px;  /*
   }
 
 /* Header mobile */
