@@ -71,7 +71,7 @@ body{
 
   /* ↓↓↓ dimensioni ↓↓↓ */
   height:40px;
-  width:calc(var(--tab-length) + 180px);
+  width:calc(var(--tab-length) + 160px);
   padding:0 12px;
 
   font-weight:900; text-transform:uppercase; letter-spacing:.5px;
