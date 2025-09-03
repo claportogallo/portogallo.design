@@ -3,7 +3,7 @@
   --tab-bg:#000; --tab-text:#fff;
 
   /* Desktop tabs (verticali) */
-  --tab-length: 180px;      /* lunghezza segnalibro */
+  --tab-length: 150px;      /* lunghezza segnalibro */
   --tab-thickness: 28px;    /* spessore segnalibro */
   --top-corridor: 140px;    /* fascia superiore desktop */
 
@@ -73,7 +73,7 @@ body{
   font-weight:900; text-transform:uppercase; letter-spacing:.5px;
 }
 .contact-tab span{ margin-left:6px; }
-.contact-tab:hover{ transform:translateX(--40px); }
+.contact-tab:hover{ transform:translateX(--60px); }
 
 /* Stage (home grid) */
 .stage{
