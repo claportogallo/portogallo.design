@@ -384,6 +384,20 @@ header.topbar .logo-img{ height: var(--logo-site); }
   body.mode-project .tabs .vtab:hover .icon{ display:none !important; }
 }
 
+/* === Desktop: “About me” più stretto (più spazio ai lati) === */
+@media (min-width:901px){
+  /* contenitore più stretto */
+  body.project-about .project-sheet .sheet{
+    width: min(900px, 70vw);   /* default era min(1200px, 86vw) */
+    grid-template-columns: 1fr; /* una sola colonna */
+  }
+  /* colonna immagini centrata e più stretta */
+  body.project-about .sheet-media{
+    max-width: min(720px, 56vw);
+    margin: 0 auto !important;  /* centra */
+  }
+}
+
 /* ===================== MOBILE / TABLET ===================== */
 @media (max-width:900px){
   :root{
