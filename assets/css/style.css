@@ -70,9 +70,9 @@ body{
   display:flex; align-items:center;
 
   /* ↓↓↓ PIÙ STRETTO? abbassa questi tre valori ↓↓↓ */
-  height:40px;                                     /* prima 48px */
-  width:calc(var(--tab-length) + 120px);           /* prima +160px */
-  padding:0 12px;                                  /* prima 0 16px */
+  height:40px;
+  width:calc(var(--tab-length) + 150px);
+  padding:0 12px;
 
   font-weight:900; text-transform:uppercase; letter-spacing:.5px;
 
