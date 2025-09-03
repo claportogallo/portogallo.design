@@ -239,7 +239,7 @@ A ogni posto, una <strong>cartolina</strong>: davanti la città immaginaria, die
 
   // un elemento per OGNI immagine (opzionale): se la stringa è vuota, nessun testo e le foto restano attaccate
   texts: [
-    `<strong>Architetto con mani d’artigiano</strong>: tra <strong>BIM</strong> e <strong>bottega</strong> progetto spazi, identità e oggetti.<br>
+    `<strong>Architetto con mani d’artigiano</strong>: tra <strong>BIM</strong> e <strong>bottega</strong> progetto spazi, identità e oggetti.
 Mi muovo tra cantiere e atelier: tecnica, illustrazione e materia per dare forma a storie nuove.<br><br>
 <strong>Mi chiamo Claudio Portogallo</strong>. Progetto con la testa e con le mani.<br>
 Sono <strong>architetto</strong>, <strong>designer</strong> e <strong>artigiano</strong>: mi occupo di progettazione e sono <strong>BIM Coordinator</strong> con lo studio internazionale <strong>Archea Associati</strong> di Firenze; in parallelo seguo lavori indipendenti di architettura e di interni.<br>
