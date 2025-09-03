@@ -259,7 +259,7 @@ Non amo definirmi “artista”: preferisco costruire, pezzo dopo pezzo, immagin
 <strong>Ottagono.Artspace</strong> (atelier).
 <strong>Revit/BIM</strong>, suite grafica, ceramica/legno/carta, <strong>AI</strong>.<br><br>`,
     ``,
-    `<strong>Hai un’idea?</strong> Parliamone: la disegniamo, la testiamo, la realizziamo.`,
+    `<br><br><strong>Hai un’idea?</strong> Parliamone: la disegniamo, la testiamo, la realizziamo.<br><br>`,
     ``
   ]
 },
