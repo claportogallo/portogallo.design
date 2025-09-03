@@ -221,19 +221,31 @@ A ogni posto, una <strong>cartolina</strong>: davanti la città immaginaria, die
     ]
   },
 
-  "About me": { 
-    title: "About me", 
-    meta: "Firenze · 1993",
-    cats: ["about"], 
-    desc: "Architetto & designer. Spazi, identità visive, processi BIM. Firenze.", 
-    images: [
-      "assets/images/projects/i/1.jpg",
-      "assets/images/projects/i/2.jpg",
-      "assets/images/projects/i/3.jpg",
-      "assets/images/projects/i/4.jpg",
-      "assets/images/projects/i/5.jpg"
-    ]
-  },
+"About me": {
+  title: "About me",
+  meta: "Firenze · 1993",
+  cats: ["about"],
+
+  // attiva il layout con i testi tra una foto e l’altra
+  inlineText: true,
+
+  images: [
+    "assets/images/projects/i/1.jpg",
+    "assets/images/projects/i/2.jpg",
+    "assets/images/projects/i/3.jpg",
+    "assets/images/projects/i/4.jpg",
+    "assets/images/projects/i/5.jpg"
+  ],
+
+  // un elemento per OGNI immagine (opzionale): se la stringa è vuota, nessun testo e le foto restano attaccate
+  texts: [
+    `Ciao! Sono <strong>architetto e designer</strong>. Mi occupo di spazi, identità visive e processi BIM con base a Firenze.`,
+    `Dal 2016 progetto e coordino attività tra <em>architettura</em> e <em>grafica</em>, con attenzione a processi, materiali e dettaglio.`,
+    ``,
+    ``,
+    ``
+  ]
+},
 
   "Scultura J": { 
     title: "Scultura J", 
