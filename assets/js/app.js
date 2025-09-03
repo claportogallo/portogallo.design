@@ -210,18 +210,37 @@ homeBtn.addEventListener('click', e => {
 function openProject(project){
   if (!project) return;
 
+  const isInline = !!project.inlineText;               // layout “testo tra le immagini”
+
+  // toggle classe sul wrapper per cambiare layout via CSS
+  projectSheet.classList.toggle('inline', isInline);
+
+  // se inline: nascondiamo la colonna laterale (CSS) e NON usiamo sheetDesc
+  // se non inline: comportamento classico
   sheetTitle.textContent = project.title || 'Progetto';
-  sheetDesc.innerHTML    = project.desc || '';   // <-- HTML abilitato
+  sheetDesc.innerHTML    = isInline ? '' : (project.desc || '');
   sheetMedia.innerHTML   = '';
 
-  const imgs = Array.isArray(project.images) ? project.images : [];
-  imgs.forEach(src => {
+  const imgs  = Array.isArray(project.images) ? project.images : [];
+  const texts = Array.isArray(project.texts)  ? project.texts  : [];
+
+  imgs.forEach((src, i) => {
     const im = new Image();
-    im.loading = 'eager';
+    im.loading  = 'eager';
     im.decoding = 'async';
     im.src = src;
     im.addEventListener('load', () => im.classList.add('is-ready'));
     sheetMedia.appendChild(im);
+
+    if (isInline){
+      const t = texts[i];
+      if (t && String(t).trim()){
+        const block = document.createElement('div');
+        block.className = 'img-text';
+        block.innerHTML = t;                  // consenti <strong>, link, ecc.
+        sheetMedia.appendChild(block);
+      }
+    }
   });
 
   setMode('project');
