@@ -515,3 +515,7 @@ header.topbar .logo-img{ height: var(--logo-site); }
 #preloader:not(.hide) ~ .footnote{
   display: none !important;
 }
+
+/* Nascondi il tab Contatti (e volendo i tabs) mentre il preloader è visibile */
+#preloader:not(.hide) ~ #contactTab{ display:none !important; }
+#preloader:not(.hide) ~ #tabs{ display:none !important; } /* opzionale */
