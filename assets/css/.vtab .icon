@@ -61,10 +61,18 @@ body{
   transform:rotate(180deg);
   text-align:left; font-weight:900; letter-spacing:.4px;
 }
+/* Icona SVG nei tab: dimensioni + posizionamento */
 .vtab .icon{
-  position:absolute; bottom:8px; left:8px;
-  writing-mode: horizontal-tb; transform:none;
-  display:none;
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  display: none;                    /* visibile solo in modalità compatta */
+  width: var(--tab-icon);
+  height: var(--tab-icon);
+  inline-size: var(--tab-icon);     /* Safari/WebKit */
+  block-size: var(--tab-icon);
+  object-fit: contain;              /* adatta senza deformare */
+  pointer-events: none;             /* evita click sull’icona */
 }
 
 /* Contact tab (desktop) */
