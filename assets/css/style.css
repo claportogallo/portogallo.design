@@ -63,6 +63,14 @@ body{
   display:none;
 }
 
+/* Dimensioni degli SVG nelle icone dei tab */
+.vtab .icon img{
+  width: 20px;
+  height: 20px;
+  display: block;
+  pointer-events: none;
+}
+
 /* Contact tab (desktop) */
 .contact-tab{
   position:fixed; right:-160px; bottom:24px; z-index:120;
