@@ -14,8 +14,6 @@
   --tab-icon: 22px;   /* ← dimensione icone nei tab compatti */
 }
 
-}
-
 *{ box-sizing:border-box; }
 html, body{ height:100%; }
 
