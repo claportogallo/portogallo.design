@@ -31,14 +31,50 @@
     <div class="bz right" id="bzRight"></div>
   </div>
 
-  <aside class="tabs ribbon" id="tabs">
-    <button class="vtab" data-filter="architettura" data-icon="🏛️"><span class="icon">🏛️</span><span class="label">Architettura</span></button>
-    <button class="vtab" data-filter="artigianato" data-icon="🪵"><span class="icon">🪵</span><span class="label">Artigianato</span></button>
-    <button class="vtab" data-filter="grafica" data-icon="🖨️"><span class="icon">🖨️</span><span class="label">Grafica</span></button>
-    <button class="vtab" data-filter="bimai" data-icon="🧠"><span class="icon">🧠</span><span class="label">BIM + AI</span></button>
-    <button class="vtab" data-filter="wedding" data-icon="💌"><span class="icon">💌</span><span class="label">Wedding</span></button>
-    <button class="vtab" data-filter="about" data-icon="👤"><span class="icon">👤</span><span class="label">About me</span></button>
-  </aside>
+ <aside class="tabs ribbon" id="tabs">
+  <button class="vtab" type="button" data-filter="architettura">
+    <span class="icon" aria-hidden="true">
+      <img src="assets/icons/architettura.svg" alt="">
+    </span>
+    <span class="label">Architettura</span>
+  </button>
+
+  <button class="vtab" type="button" data-filter="artigianato">
+    <span class="icon" aria-hidden="true">
+      <img src="assets/icons/artigianato.svg" alt="">
+    </span>
+    <span class="label">Artigianato</span>
+  </button>
+
+  <button class="vtab" type="button" data-filter="grafica">
+    <span class="icon" aria-hidden="true">
+      <img src="assets/icons/grafica.svg" alt="">
+    </span>
+    <span class="label">Grafica</span>
+  </button>
+
+  <button class="vtab" type="button" data-filter="bimai">
+    <span class="icon" aria-hidden="true">
+      <img src="assets/icons/bimai.svg" alt="">
+    </span>
+    <span class="label">BIM + AI</span>
+  </button>
+
+  <button class="vtab" type="button" data-filter="wedding">
+    <span class="icon" aria-hidden="true">
+      <img src="assets/icons/wedding.svg" alt="">
+    </span>
+    <span class="label">Wedding</span>
+  </button>
+
+  <!-- IMPORTANTE: tieni data-filter="about" (serve al JS) -->
+  <button class="vtab" type="button" data-filter="about">
+    <span class="icon" aria-hidden="true">
+      <img src="assets/icons/about-me.svg" alt="">
+    </span>
+    <span class="label">About me</span>
+  </button>
+</aside>
 
   <a class="contact-tab" href="#" id="contactTab" title="Contatti"><span>Contatti</span></a>
 
