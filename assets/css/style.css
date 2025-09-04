@@ -81,10 +81,12 @@ body{
 }
 .contact-tab span{ margin-left:6px; }
 
-/* PIÙ “crescita” in hover = esce di più e (volendo) si allunga */
-.contact-tab:hover{
-  transform: translateX(-140px);
-  width: calc(var(--tab-length) + 180px);
+@media (min-width:901px){
+  /* PIÙ “crescita” in hover = esce di più e (volendo) si allunga */
+  .contact-tab:hover{
+    transform: translateX(-140px);
+    width: calc(var(--tab-length) + 180px);
+  }
 }
 
 /* Stage (home grid) */
@@ -411,7 +413,7 @@ header.topbar .logo-img{ height: var(--logo-site); }
 
     /* Offset logo e griglia home */
     --logo-mobile-offset: 15px;
-    --home-mobile-shift: 180px;  /*
+    --home-mobile-shift: 180px;  /* extra spazio sotto la fascia in HOME */
   }
 
 /* Header mobile */
@@ -487,13 +489,35 @@ header.topbar .logo-img{
 
   /* “Contatti” in basso */
   #contactTab{
-    position:fixed; right:var(--tabOffset); bottom:12px; z-index:180;
-    display:flex; align-items:center; justify-content:flex-start;
-    width:var(--tabW); height:40px; padding:0 12px;
-    border-radius:4px 0 0 4px; background:#000; color:#fff; text-decoration:none;
-    border:0; box-shadow:none; font-size:12px; line-height:1;
-    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
-  }
+  position: fixed;
+  right: calc(var(--tabOffset) + env(safe-area-inset-right)); /* notch-friendly */
+  left: auto;
+  bottom: 12px;
+  z-index: 220;                           /* sopra le card */
+  display:flex; align-items:center; justify-content:flex-start;
+
+  width: var(--tabW) !important;
+  height: 48px !important;                /* target dito più comodo */
+  padding: 0 14px !important;
+  border-radius:4px 0 0 4px;
+
+  background:#000; color:#fff; text-decoration:none;
+  border:0; box-shadow:none; font-size:12px; line-height:1;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+
+  transform: none !important;             /* blocca movimenti */
+  pointer-events: auto;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* su mobile niente “allungamento” in hover/active */
+#contactTab:hover,
+#contactTab:active,
+#contactTab:focus{
+  transform: none !important;
+  width: var(--tabW) !important;
+}
 
   /* Dentro un progetto: niente fascia in alto */
   #overlay:not(.hidden) .overlay-scroll,
