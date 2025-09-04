@@ -335,6 +335,15 @@ header.topbar .logo-img{ height: var(--logo-site); }
 
 /* ===================== DESKTOP-ONLY ===================== */
 @media (min-width:901px){
+  /* mostra icone quando i tab sono accorciati (compact) e NON attivi */
+  #tabs.compact .vtab:not(.active) .icon{
+    display:block !important;
+    line-height:0;      /* evita spazi strani intorno all'img */
+  }
+  #tabs.compact .vtab:not(.active) .label{
+    display:none !important;
+  }
+}
 
   /* Hover grow (SOLO desktop in stato normale) */
   .vtab:hover{ height: calc(var(--tab-length) + 60px); transition: height .15s ease; }
@@ -384,6 +393,12 @@ header.topbar .logo-img{ height: var(--logo-site); }
   body.mode-project .tabs .vtab:hover .label{ display:block !important; }
   body.mode-project #tabs .vtab:hover .icon,
   body.mode-project .tabs .vtab:hover .icon{ display:none !important; }
+}
+
+.vtab .icon img{
+  width: var(--tab-icon);
+  height: var(--tab-icon);
+  display: block;
 }
 
 /* === Desktop: “About me” più stretto (più spazio ai lati) === */
