@@ -239,10 +239,11 @@ A ogni posto, una <strong>cartolina</strong>: davanti la città immaginaria, die
 
   // un elemento per OGNI immagine (opzionale): se la stringa è vuota, nessun testo e le foto restano attaccate
   texts: [
-    `<strong>Architetto con mani d’artigiano</strong>: tra <strong>BIM</strong> e <strong>bottega</strong> progetto spazi, identità e oggetti.
-Mi muovo tra cantiere e atelier: tecnica, illustrazione e materia per dare forma a storie nuove.<br><br>
-<strong>Mi chiamo Claudio Portogallo</strong>. Progetto con la testa e con le mani.<br>
-Sono <strong>architetto</strong>, <strong>designer</strong> e <strong>artigiano</strong>: mi occupo di progettazione e sono <strong>BIM Coordinator</strong> con lo studio internazionale <strong>Archea Associati</strong> di Firenze; in parallelo seguo lavori indipendenti di architettura e di interni.<br>
+    `<strong>Architetto. Designer. Illustratore. Henro.</strong>
+Tanti volti, un unico percorso.<br><br>
+<strong>Sono Claudio Portogallo</strong>. Progetto con la testa e con le mani.<br>
+Sono <strong>architetto</strong>, <strong>designer</strong> e un po'<strong>artigiano</strong>: mi occupo di progettazione e sono <strong>BIM Coordinator</strong> con lo studio internazionale <strong>Archea Associati</strong> di Firenze; in parallelo seguo lavori indipendenti di architettura e di interni.
+Sono anche fiero <strong>Henro</strong> — pellegrino del cammino di Shikoku: un pezzo di me che mi permette di portare nel lavoro la pazienza del viaggio, un passo alla volta.<br><br>
 Nell’atelier <strong>Ottagono.Artspace</strong> sperimento con <strong>ceramica</strong>, <strong>legno</strong>, <strong>carta</strong> e <strong>illustrazione</strong>: qui la materia mi rimette a terra e la fantasia mi spinge a sperimentare con grande libertà.<br>
 Amo l’arte e lavoro anche con l’<strong>intelligenza artificiale</strong>, che uso ogni giorno come taccuino di ricerca visiva e come spinta per uscire dai binari dell’ordinario.<br>
 Non amo definirmi “artista”: preferisco costruire, pezzo dopo pezzo, immagini e spazi che parlano chiaro, rispettano <strong>tempi e budget</strong> e — soprattutto — fanno stare bene chi li abita.<br><br>`,
