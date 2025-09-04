@@ -248,13 +248,13 @@ Nell’atelier <strong>Ottagono.Artspace</strong> sperimento con <strong>ceramic
 Amo l’arte e lavoro anche con l’<strong>intelligenza artificiale</strong>, che uso ogni giorno come taccuino di ricerca visiva e come spinta per uscire dai binari dell’ordinario.<br>
 Non amo definirmi “artista”: preferisco costruire, pezzo dopo pezzo, immagini e spazi che parlano chiaro, rispettano <strong>tempi e budget</strong> e — soprattutto — fanno stare bene chi li abita.<br><br>`,
     `<strong>Cosa faccio</strong><br>
-• <strong>Architettura & Interni</strong> — grandi edifici, abitazioni, retail, hospitality; concept, dettaglio e cantiere.<br>
-• <strong>Design su misura</strong> — arredi e oggetti unici, prototipazione rapida.<br>
-• <strong>Grafica & Illustrazione</strong> — biglietti e inviti che raccontano storie, identità di luoghi, sistemi illustrati.<br>
+• <strong>Architettura & Interni</strong> — grandi edifici, abitazioni, retail, hospitality; concept, dettaglio e cantiere.
+• <strong>Design su misura</strong> — arredi e oggetti unici, prototipazione rapida.
+• <strong>Grafica & Illustrazione</strong> — biglietti e inviti che raccontano storie, identità di luoghi, sistemi illustrati.
 • <strong>BIM</strong> — modellazione, coordinamento, standard, qualità.<br><br>
 <strong>Metodo</strong><br>
-<strong>Ascolto</strong> → <strong>Idea condivisa</strong> → <strong>Prototipo/Mockup</strong> → <strong>Consegna curata nel dettaglio</strong><br>
-<strong>Valori</strong>: chiarezza • rispetto di tempi e budget • artigianalità<br><br>
+<strong>Ascolto</strong> → <strong>Idea condivisa</strong> → <strong>Prototipo/Mockup</strong> → <strong>Consegna curata nel dettaglio</strong>
+<strong>I miei valori</strong>: chiarezza • rispetto di tempi e budget • artigianalità<br><br>
 <strong>Collaborazioni & Strumenti</strong><br>
 <strong>Archea Associati</strong> (BIM Coordinator, Architetto Progettista).
 <strong>Ottagono.Artspace</strong> (atelier).
