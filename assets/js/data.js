@@ -239,7 +239,7 @@ A ogni posto, una <strong>cartolina</strong>: davanti la città immaginaria, die
 
   // un elemento per OGNI immagine (opzionale): se la stringa è vuota, nessun testo e le foto restano attaccate
   texts: [
-    `<strong>Architetto. Designer. Illustratore. Henro.</strong>
+    `<strong>Architetto. Designer. Illustratore. Henro - 遍路.</strong>
 Tanti volti, un unico percorso.<br><br>
 <strong>Sono Claudio Portogallo</strong>. Progetto con la testa e con le mani.<br>
 Sono <strong>architetto</strong>, <strong>designer</strong> e un po'<strong>artigiano</strong>: mi occupo di progettazione e sono <strong>BIM Coordinator</strong> con lo studio internazionale <strong>Archea Associati</strong> di Firenze; in parallelo seguo lavori indipendenti di architettura e di interni.
